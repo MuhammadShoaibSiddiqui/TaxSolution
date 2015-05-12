@@ -1181,6 +1181,11 @@ namespace TaxSolution
              frm.Show();
          }
 
+         private void companyLogoToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+
+         }
+
  
     }
 }

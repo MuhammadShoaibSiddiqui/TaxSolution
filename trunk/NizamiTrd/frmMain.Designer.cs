@@ -160,6 +160,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.companyLogoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem31 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -204,6 +206,8 @@
             this.itemGroupDescriptionToolStripMenuItem,
             this.itemCodeDescriptionToolStripMenuItem,
             this.toolStripMenuItem17,
+            this.companyLogoToolStripMenuItem,
+            this.toolStripMenuItem31,
             this.exitToolStripMenuItem});
             this.codeDescriptionToolStripMenuItem.Name = "codeDescriptionToolStripMenuItem";
             this.codeDescriptionToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
@@ -1150,6 +1154,18 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // companyLogoToolStripMenuItem
+            // 
+            this.companyLogoToolStripMenuItem.Name = "companyLogoToolStripMenuItem";
+            this.companyLogoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.companyLogoToolStripMenuItem.Text = "Company Logo";
+            this.companyLogoToolStripMenuItem.Click += new System.EventHandler(this.companyLogoToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem31
+            // 
+            this.toolStripMenuItem31.Name = "toolStripMenuItem31";
+            this.toolStripMenuItem31.Size = new System.Drawing.Size(205, 6);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1160,6 +1176,7 @@
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.KeyPreview = true;
@@ -1310,6 +1327,8 @@
         private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backupDatabaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem detailedPrintingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem companyLogoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem31;
     }
 }
 
