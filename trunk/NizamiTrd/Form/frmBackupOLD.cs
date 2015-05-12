@@ -25,7 +25,7 @@ namespace TaxSolution
 
         private void backup_Database_Load(object sender, EventArgs e)
         {
-            txtPath.Text = "\\" + "\\win2k8svr\\g$\\Backup\\NizamiBrothers" + DateTime.Now.ToString("dd-MM-yyyy_ddd_hh_mm") + ".bak";
+            txtPath.Text = "\\" + "\\shoaibsiddiqui\\f$\\Backup\\TaxSolution" + DateTime.Now.ToString("dd-MM-yyyy_ddd_hh_mm") + ".bak";
             this.MaximizeBox = false;
         }
 
@@ -45,7 +45,7 @@ namespace TaxSolution
                 SqlConnection con = new SqlConnection(clsGVar.ConString1);
                 //string f = "\\";
                 //string filePath = "\\win2k8svr\\g$\\Backup"; 
-                string pSQL = "backup database NizamiBrothers to disk ='" + txtPath.Text.ToString() + "'";
+                string pSQL = "backup database TaxSolution to disk ='" + txtPath.Text.ToString() + "'";
                 //cmd.ExecuteNonQuery();
                 clsDbManager.ExeOne(pSQL);
                 //MessageBox.Show("Bacukup Successful");
