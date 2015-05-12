@@ -1183,7 +1183,9 @@ namespace TaxSolution
 
          private void companyLogoToolStripMenuItem_Click(object sender, EventArgs e)
          {
-
+             frmCompanyLogo frm = new frmCompanyLogo();
+             frm.MdiParent = this;
+             frm.Show();
          }
 
  
