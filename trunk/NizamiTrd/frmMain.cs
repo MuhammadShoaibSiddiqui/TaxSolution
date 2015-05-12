@@ -1032,7 +1032,7 @@ namespace TaxSolution
 
         private void manufacturerClosingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLogin lgn = new frmLogin();
+            frmCompanyLogo lgn = new frmCompanyLogo();
             lgn.Login = string.Empty;
             lgn.ShowDialog();
 
@@ -1102,7 +1102,7 @@ namespace TaxSolution
 
          private void millClosingToolStripMenuItem_Click(object sender, EventArgs e)
          {
-            frmLogin lgn = new frmLogin();
+            frmCompanyLogo lgn = new frmCompanyLogo();
             lgn.Login = string.Empty;
             lgn.ShowDialog();
 

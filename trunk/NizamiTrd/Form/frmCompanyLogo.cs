@@ -11,11 +11,11 @@ using System.Configuration;
 
 namespace TaxSolution
 {
-    public partial class frmLogin : Form
+    public partial class frmCompanyLogo : Form
     {
         string login = string.Empty;
 
-        public frmLogin()
+        public frmCompanyLogo()
         {
             InitializeComponent();
         }
