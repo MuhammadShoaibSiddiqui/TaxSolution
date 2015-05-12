@@ -33,19 +33,19 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblCompanyName = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnBrowse = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -79,6 +79,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Logo";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(146, 153);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 63;
+            this.pictureBox1.TabStop = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnDelete);
@@ -88,19 +98,6 @@
             this.groupBox3.Size = new System.Drawing.Size(135, 79);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Enabled = false;
-            this.btnBrowse.Image = global::TaxSolution.Properties.Resources.node_open;
-            this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBrowse.Location = new System.Drawing.Point(27, 19);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 0;
-            this.btnBrowse.Text = "  Browse";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnDelete
             // 
@@ -114,6 +111,19 @@
             this.btnDelete.Text = "  Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Enabled = false;
+            this.btnBrowse.Image = global::TaxSolution.Properties.Resources.node_open;
+            this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBrowse.Location = new System.Drawing.Point(27, 19);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 0;
+            this.btnBrowse.Text = "  Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnSave
             // 
@@ -174,16 +184,6 @@
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 153);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 63;
-            this.pictureBox1.TabStop = false;
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -211,8 +211,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
