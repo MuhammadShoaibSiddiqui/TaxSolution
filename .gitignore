@@ -43,3 +43,10 @@ Temporary Items
 .apdisk
 *.cache
 *.dll
+*.application
+*.exe
+*.resources
+*.manifest
+*.config
+*.txt
+*.pdb
