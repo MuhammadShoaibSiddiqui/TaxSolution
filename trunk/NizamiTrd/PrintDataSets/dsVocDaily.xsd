@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsVocDaily" targetNamespace="http://tempuri.org/dsVocDaily.xsd" xmlns:mstns="http://tempuri.org/dsVocDaily.xsd" xmlns="http://tempuri.org/dsVocDaily.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsVocDaily" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsVocDaily" msprop:Generator_UserDSName="dsVocDaily">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsVocDaily" msprop:Generator_TableClassName="dsVocDailyDataTable" msprop:Generator_TableVarName="tabledsVocDaily" msprop:Generator_TablePropName="_dsVocDaily" msprop:Generator_RowDeletingName="dsVocDailyRowDeleting" msprop:Generator_UserTableName="dsVocDaily" msprop:Generator_RowChangingName="dsVocDailyRowChanging" msprop:Generator_RowEvHandlerName="dsVocDailyRowChangeEventHandler" msprop:Generator_RowDeletedName="dsVocDailyRowDeleted" msprop:Generator_RowEvArgName="dsVocDailyRowChangeEvent" msprop:Generator_RowChangedName="dsVocDailyRowChanged" msprop:Generator_RowClassName="dsVocDailyRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="doc_vt_id" msprop:Generator_ColumnVarNameInTable="columndoc_vt_id" msprop:Generator_ColumnPropNameInRow="doc_vt_id" msprop:Generator_ColumnPropNameInTable="doc_vt_idColumn" msprop:Generator_UserColumnName="doc_vt_id" type="xs:int" />
+              <xs:element name="Doc_VT_Name" msprop:Generator_ColumnVarNameInTable="columnDoc_VT_Name" msprop:Generator_ColumnPropNameInRow="Doc_VT_Name" msprop:Generator_ColumnPropNameInTable="Doc_VT_NameColumn" msprop:Generator_UserColumnName="Doc_VT_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="doc_fiscal_id" msprop:Generator_ColumnVarNameInTable="columndoc_fiscal_id" msprop:Generator_ColumnPropNameInRow="doc_fiscal_id" msprop:Generator_ColumnPropNameInTable="doc_fiscal_idColumn" msprop:Generator_UserColumnName="doc_fiscal_id" type="xs:int" />
+              <xs:element name="doc_id" msprop:Generator_ColumnVarNameInTable="columndoc_id" msprop:Generator_ColumnPropNameInRow="doc_id" msprop:Generator_ColumnPropNameInTable="doc_idColumn" msprop:Generator_UserColumnName="doc_id" type="xs:int" />
+              <xs:element name="doc_strid" msprop:Generator_ColumnVarNameInTable="columndoc_strid" msprop:Generator_ColumnPropNameInRow="doc_strid" msprop:Generator_ColumnPropNameInTable="doc_stridColumn" msprop:Generator_UserColumnName="doc_strid">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="doc_date" msprop:Generator_ColumnVarNameInTable="columndoc_date" msprop:Generator_ColumnPropNameInRow="doc_date" msprop:Generator_ColumnPropNameInTable="doc_dateColumn" msprop:Generator_UserColumnName="doc_date" type="xs:dateTime" />
+              <xs:element name="doc_remarks" msprop:Generator_ColumnVarNameInTable="columndoc_remarks" msprop:Generator_ColumnPropNameInRow="doc_remarks" msprop:Generator_ColumnPropNameInTable="doc_remarksColumn" msprop:Generator_UserColumnName="doc_remarks" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="doc_amt" msprop:Generator_ColumnVarNameInTable="columndoc_amt" msprop:Generator_ColumnPropNameInRow="doc_amt" msprop:Generator_ColumnPropNameInTable="doc_amtColumn" msprop:Generator_UserColumnName="doc_amt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="doc_status" msprop:Generator_ColumnVarNameInTable="columndoc_status" msprop:Generator_ColumnPropNameInRow="doc_status" msprop:Generator_ColumnPropNameInTable="doc_statusColumn" msprop:Generator_UserColumnName="doc_status" type="xs:short" />
+              <xs:element name="AC_ID" msprop:Generator_ColumnVarNameInTable="columnAC_ID" msprop:Generator_ColumnPropNameInRow="AC_ID" msprop:Generator_ColumnPropNameInTable="AC_IDColumn" msprop:Generator_UserColumnName="AC_ID" type="xs:long" />
+              <xs:element name="ac_title" msprop:Generator_ColumnVarNameInTable="columnac_title" msprop:Generator_ColumnPropNameInRow="ac_title" msprop:Generator_ColumnPropNameInTable="ac_titleColumn" msprop:Generator_UserColumnName="ac_title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ac_st" msprop:Generator_ColumnVarNameInTable="columnac_st" msprop:Generator_ColumnPropNameInRow="ac_st" msprop:Generator_ColumnPropNameInTable="ac_stColumn" msprop:Generator_UserColumnName="ac_st">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NARRATION" msprop:Generator_ColumnVarNameInTable="columnNARRATION" msprop:Generator_ColumnPropNameInRow="NARRATION" msprop:Generator_ColumnPropNameInTable="NARRATIONColumn" msprop:Generator_UserColumnName="NARRATION" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DEBIT" msprop:Generator_ColumnVarNameInTable="columnDEBIT" msprop:Generator_ColumnPropNameInRow="DEBIT" msprop:Generator_ColumnPropNameInTable="DEBITColumn" msprop:Generator_UserColumnName="DEBIT" type="xs:decimal" />
+              <xs:element name="CREDIT" msprop:Generator_ColumnVarNameInTable="columnCREDIT" msprop:Generator_ColumnPropNameInRow="CREDIT" msprop:Generator_ColumnPropNameInTable="CREDITColumn" msprop:Generator_UserColumnName="CREDIT" type="xs:decimal" />
+              <xs:element name="isChecked" msprop:Generator_ColumnVarNameInTable="columnisChecked" msprop:Generator_ColumnPropNameInRow="isChecked" msprop:Generator_ColumnPropNameInTable="isCheckedColumn" msprop:Generator_UserColumnName="isChecked" type="xs:boolean" />
+              <xs:element name="SERIAL_No" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="SERIAL_NO" msprop:Generator_ColumnVarNameInTable="columnSERIAL_No" msprop:Generator_ColumnPropNameInRow="SERIAL_No" msprop:Generator_ColumnPropNameInTable="SERIAL_NoColumn" msprop:Generator_UserColumnName="SERIAL_No" type="xs:long" />
+              <xs:element name="VocPrintSeq" msprop:Generator_ColumnVarNameInTable="columnVocPrintSeq" msprop:Generator_ColumnPropNameInRow="VocPrintSeq" msprop:Generator_ColumnPropNameInTable="VocPrintSeqColumn" msprop:Generator_UserColumnName="VocPrintSeq" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

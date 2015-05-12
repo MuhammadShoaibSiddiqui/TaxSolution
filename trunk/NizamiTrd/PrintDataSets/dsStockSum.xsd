@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsStockSum" targetNamespace="http://tempuri.org/dsStockSum.xsd" xmlns:mstns="http://tempuri.org/dsStockSum.xsd" xmlns="http://tempuri.org/dsStockSum.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsStockSum" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsStockSum" msprop:Generator_UserDSName="dsStockSum">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsStockSum" msprop:Generator_TableClassName="dsStockSumDataTable" msprop:Generator_TableVarName="tabledsStockSum" msprop:Generator_TablePropName="_dsStockSum" msprop:Generator_RowDeletingName="dsStockSumRowDeleting" msprop:Generator_UserTableName="dsStockSum" msprop:Generator_RowChangingName="dsStockSumRowChanging" msprop:Generator_RowEvHandlerName="dsStockSumRowChangeEventHandler" msprop:Generator_RowDeletedName="dsStockSumRowDeleted" msprop:Generator_RowEvArgName="dsStockSumRowChangeEvent" msprop:Generator_RowChangedName="dsStockSumRowChanged" msprop:Generator_RowClassName="dsStockSumRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OpeningQty_In" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOpeningQty_In" msprop:Generator_ColumnPropNameInRow="OpeningQty_In" msprop:Generator_ColumnPropNameInTable="OpeningQty_InColumn" msprop:Generator_UserColumnName="OpeningQty_In" type="xs:double" minOccurs="0" />
+              <xs:element name="OpeningQty_Out" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOpeningQty_Out" msprop:Generator_ColumnPropNameInRow="OpeningQty_Out" msprop:Generator_ColumnPropNameInTable="OpeningQty_OutColumn" msprop:Generator_UserColumnName="OpeningQty_Out" type="xs:double" minOccurs="0" />
+              <xs:element name="OpeningBalance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOpeningBalance" msprop:Generator_ColumnPropNameInRow="OpeningBalance" msprop:Generator_ColumnPropNameInTable="OpeningBalanceColumn" msprop:Generator_UserColumnName="OpeningBalance" type="xs:double" minOccurs="0" />
+              <xs:element name="WholeQty_In" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWholeQty_In" msprop:Generator_ColumnPropNameInRow="WholeQty_In" msprop:Generator_ColumnPropNameInTable="WholeQty_InColumn" msprop:Generator_UserColumnName="WholeQty_In" type="xs:double" minOccurs="0" />
+              <xs:element name="SubTotal" msdata:ReadOnly="true" msdata:Caption="WholeQty_In" msprop:Generator_ColumnVarNameInTable="columnSubTotal" msprop:Generator_ColumnPropNameInRow="SubTotal" msprop:Generator_ColumnPropNameInTable="SubTotalColumn" msprop:Generator_UserColumnName="SubTotal" type="xs:double" minOccurs="0" />
+              <xs:element name="WholeQty_Out" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWholeQty_Out" msprop:Generator_ColumnPropNameInRow="WholeQty_Out" msprop:Generator_ColumnPropNameInTable="WholeQty_OutColumn" msprop:Generator_UserColumnName="WholeQty_Out" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalStock" msdata:ReadOnly="true" msdata:Caption="WholeQty_In" msprop:Generator_ColumnVarNameInTable="columnTotalStock" msprop:Generator_ColumnPropNameInRow="TotalStock" msprop:Generator_ColumnPropNameInTable="TotalStockColumn" msprop:Generator_UserColumnName="TotalStock" type="xs:double" minOccurs="0" />
+              <xs:element name="WholeBalance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWholeBalance" msprop:Generator_ColumnPropNameInRow="WholeBalance" msprop:Generator_ColumnPropNameInTable="WholeBalanceColumn" msprop:Generator_UserColumnName="WholeBalance" type="xs:double" minOccurs="0" />
+              <xs:element name="ClosingBalance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnClosingBalance" msprop:Generator_ColumnPropNameInRow="ClosingBalance" msprop:Generator_ColumnPropNameInTable="ClosingBalanceColumn" msprop:Generator_UserColumnName="ClosingBalance" type="xs:double" minOccurs="0" />
+              <xs:element name="WasteQty_In" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWasteQty_In" msprop:Generator_ColumnPropNameInRow="WasteQty_In" msprop:Generator_ColumnPropNameInTable="WasteQty_InColumn" msprop:Generator_UserColumnName="WasteQty_In" type="xs:double" minOccurs="0" />
+              <xs:element name="WasteQty_Out" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWasteQty_Out" msprop:Generator_ColumnPropNameInRow="WasteQty_Out" msprop:Generator_ColumnPropNameInTable="WasteQty_OutColumn" msprop:Generator_UserColumnName="WasteQty_Out" type="xs:double" minOccurs="0" />
+              <xs:element name="WasteBalance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWasteBalance" msprop:Generator_ColumnPropNameInRow="WasteBalance" msprop:Generator_ColumnPropNameInTable="WasteBalanceColumn" msprop:Generator_UserColumnName="WasteBalance" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

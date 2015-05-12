@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsAgingDue" targetNamespace="http://tempuri.org/dsAgingDue.xsd" xmlns:mstns="http://tempuri.org/dsAgingDue.xsd" xmlns="http://tempuri.org/dsAgingDue.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsAgingDue" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsAgingDue" msprop:Generator_UserDSName="dsAgingDue">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsAgingDue" msprop:Generator_TableClassName="dsAgingDueDataTable" msprop:Generator_TableVarName="tabledsAgingDue" msprop:Generator_TablePropName="_dsAgingDue" msprop:Generator_RowDeletingName="dsAgingDueRowDeleting" msprop:Generator_RowChangingName="dsAgingDueRowChanging" msprop:Generator_RowEvHandlerName="dsAgingDueRowChangeEventHandler" msprop:Generator_RowDeletedName="dsAgingDueRowDeleted" msprop:Generator_UserTableName="dsAgingDue" msprop:Generator_RowChangedName="dsAgingDueRowChanged" msprop:Generator_RowEvArgName="dsAgingDueRowChangeEvent" msprop:Generator_RowClassName="dsAgingDueRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Ac_ID" msprop:Generator_ColumnVarNameInTable="columnAc_ID" msprop:Generator_ColumnPropNameInRow="Ac_ID" msprop:Generator_ColumnPropNameInTable="Ac_IDColumn" msprop:Generator_UserColumnName="Ac_ID" type="xs:long" minOccurs="0" />
+              <xs:element name="Ac_Title" msprop:Generator_ColumnVarNameInTable="columnAc_Title" msprop:Generator_ColumnPropNameInRow="Ac_Title" msprop:Generator_ColumnPropNameInTable="Ac_TitleColumn" msprop:Generator_UserColumnName="Ac_Title" type="xs:string" minOccurs="0" />
+              <xs:element name="Ac_St" msprop:Generator_ColumnVarNameInTable="columnAc_St" msprop:Generator_ColumnPropNameInRow="Ac_St" msprop:Generator_ColumnPropNameInTable="Ac_StColumn" msprop:Generator_UserColumnName="Ac_St" type="xs:string" minOccurs="0" />
+              <xs:element name="Ac_StrID" msprop:Generator_ColumnVarNameInTable="columnAc_StrID" msprop:Generator_ColumnPropNameInRow="Ac_StrID" msprop:Generator_ColumnPropNameInTable="Ac_StrIDColumn" msprop:Generator_UserColumnName="Ac_StrID" type="xs:string" minOccurs="0" />
+              <xs:element name="Debit" msprop:Generator_ColumnVarNameInTable="columnDebit" msprop:Generator_ColumnPropNameInRow="Debit" msprop:Generator_ColumnPropNameInTable="DebitColumn" msprop:Generator_UserColumnName="Debit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Credit" msprop:Generator_ColumnVarNameInTable="columnCredit" msprop:Generator_ColumnPropNameInRow="Credit" msprop:Generator_ColumnPropNameInTable="CreditColumn" msprop:Generator_UserColumnName="Credit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Less15" msprop:Generator_ColumnVarNameInTable="columnLess15" msprop:Generator_ColumnPropNameInRow="Less15" msprop:Generator_ColumnPropNameInTable="Less15Column" msprop:Generator_UserColumnName="Less15" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Less30" msprop:Generator_ColumnVarNameInTable="columnLess30" msprop:Generator_ColumnPropNameInRow="Less30" msprop:Generator_ColumnPropNameInTable="Less30Column" msprop:Generator_UserColumnName="Less30" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Less45" msprop:Generator_ColumnVarNameInTable="columnLess45" msprop:Generator_ColumnPropNameInRow="Less45" msprop:Generator_ColumnPropNameInTable="Less45Column" msprop:Generator_UserColumnName="Less45" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Less60" msprop:Generator_ColumnVarNameInTable="columnLess60" msprop:Generator_ColumnPropNameInRow="Less60" msprop:Generator_ColumnPropNameInTable="Less60Column" msprop:Generator_UserColumnName="Less60" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Less75" msprop:Generator_ColumnVarNameInTable="columnLess75" msprop:Generator_ColumnPropNameInRow="Less75" msprop:Generator_ColumnPropNameInTable="Less75Column" msprop:Generator_UserColumnName="Less75" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Less90" msprop:Generator_ColumnVarNameInTable="columnLess90" msprop:Generator_ColumnPropNameInRow="Less90" msprop:Generator_ColumnPropNameInTable="Less90Column" msprop:Generator_UserColumnName="Less90" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Above" msprop:Generator_ColumnVarNameInTable="columnAbove" msprop:Generator_ColumnPropNameInRow="Above" msprop:Generator_ColumnPropNameInTable="AboveColumn" msprop:Generator_UserColumnName="Above" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCOA_Addr" targetNamespace="http://tempuri.org/dsCOA_Addr.xsd" xmlns:mstns="http://tempuri.org/dsCOA_Addr.xsd" xmlns="http://tempuri.org/dsCOA_Addr.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCOA_Addr" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCOA_Addr" msprop:Generator_UserDSName="dsCOA_Addr">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsCOA_Addr" msprop:Generator_TableClassName="dsCOA_AddrDataTable" msprop:Generator_TableVarName="tabledsCOA_Addr" msprop:Generator_TablePropName="_dsCOA_Addr" msprop:Generator_RowDeletingName="dsCOA_AddrRowDeleting" msprop:Generator_RowChangingName="dsCOA_AddrRowChanging" msprop:Generator_RowEvHandlerName="dsCOA_AddrRowChangeEventHandler" msprop:Generator_RowDeletedName="dsCOA_AddrRowDeleted" msprop:Generator_UserTableName="dsCOA_Addr" msprop:Generator_RowChangedName="dsCOA_AddrRowChanged" msprop:Generator_RowEvArgName="dsCOA_AddrRowChangeEvent" msprop:Generator_RowClassName="dsCOA_AddrRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ac_id" msprop:Generator_ColumnVarNameInTable="columnac_id" msprop:Generator_ColumnPropNameInRow="ac_id" msprop:Generator_ColumnPropNameInTable="ac_idColumn" msprop:Generator_UserColumnName="ac_id" type="xs:long" />
+              <xs:element name="SpaceAc_StrID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSpaceAc_StrID" msprop:Generator_ColumnPropNameInRow="SpaceAc_StrID" msprop:Generator_ColumnPropNameInTable="SpaceAc_StrIDColumn" msprop:Generator_UserColumnName="SpaceAc_StrID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ac_strid" msprop:Generator_ColumnVarNameInTable="columnac_strid" msprop:Generator_ColumnPropNameInRow="ac_strid" msprop:Generator_ColumnPropNameInTable="ac_stridColumn" msprop:Generator_UserColumnName="ac_strid">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ac_title" msprop:Generator_ColumnVarNameInTable="columnac_title" msprop:Generator_ColumnPropNameInRow="ac_title" msprop:Generator_ColumnPropNameInTable="ac_titleColumn" msprop:Generator_UserColumnName="ac_title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ac_st" msprop:Generator_ColumnVarNameInTable="columnac_st" msprop:Generator_ColumnPropNameInRow="ac_st" msprop:Generator_ColumnPropNameInTable="ac_stColumn" msprop:Generator_UserColumnName="ac_st">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ac_level" msprop:Generator_ColumnVarNameInTable="columnac_level" msprop:Generator_ColumnPropNameInRow="ac_level" msprop:Generator_ColumnPropNameInTable="ac_levelColumn" msprop:Generator_UserColumnName="ac_level" type="xs:unsignedByte" />
+              <xs:element name="istran" msprop:Generator_ColumnVarNameInTable="columnistran" msprop:Generator_ColumnPropNameInRow="istran" msprop:Generator_ColumnPropNameInTable="istranColumn" msprop:Generator_UserColumnName="istran" type="xs:boolean" />
+              <xs:element name="isTranDesc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnisTranDesc" msprop:Generator_ColumnPropNameInRow="isTranDesc" msprop:Generator_ColumnPropNameInTable="isTranDescColumn" msprop:Generator_UserColumnName="isTranDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="isdisabled" msprop:Generator_ColumnVarNameInTable="columnisdisabled" msprop:Generator_ColumnPropNameInRow="isdisabled" msprop:Generator_ColumnPropNameInTable="isdisabledColumn" msprop:Generator_UserColumnName="isdisabled" type="xs:boolean" />
+              <xs:element name="isDisableDesc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnisDisableDesc" msprop:Generator_ColumnPropNameInRow="isDisableDesc" msprop:Generator_ColumnPropNameInTable="isDisableDescColumn" msprop:Generator_UserColumnName="isDisableDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_sqid" msprop:Generator_ColumnVarNameInTable="columnaddr_sqid" msprop:Generator_ColumnPropNameInRow="addr_sqid" msprop:Generator_ColumnPropNameInTable="addr_sqidColumn" msprop:Generator_UserColumnName="addr_sqid" type="xs:int" minOccurs="0" />
+              <xs:element name="addr_type_id" msprop:Generator_ColumnVarNameInTable="columnaddr_type_id" msprop:Generator_ColumnPropNameInRow="addr_type_id" msprop:Generator_ColumnPropNameInTable="addr_type_idColumn" msprop:Generator_UserColumnName="addr_type_id" type="xs:int" minOccurs="0" />
+              <xs:element name="addr_type_title" msprop:Generator_ColumnVarNameInTable="columnaddr_type_title" msprop:Generator_ColumnPropNameInRow="addr_type_title" msprop:Generator_ColumnPropNameInTable="addr_type_titleColumn" msprop:Generator_UserColumnName="addr_type_title" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_salute_id" msprop:Generator_ColumnVarNameInTable="columnaddr_salute_id" msprop:Generator_ColumnPropNameInRow="addr_salute_id" msprop:Generator_ColumnPropNameInTable="addr_salute_idColumn" msprop:Generator_UserColumnName="addr_salute_id" type="xs:int" minOccurs="0" />
+              <xs:element name="salute_title" msprop:Generator_ColumnVarNameInTable="columnsalute_title" msprop:Generator_ColumnPropNameInRow="salute_title" msprop:Generator_ColumnPropNameInTable="salute_titleColumn" msprop:Generator_UserColumnName="salute_title" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_contactperson" msprop:Generator_ColumnVarNameInTable="columnaddr_contactperson" msprop:Generator_ColumnPropNameInRow="addr_contactperson" msprop:Generator_ColumnPropNameInTable="addr_contactpersonColumn" msprop:Generator_UserColumnName="addr_contactperson" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_address1" msprop:Generator_ColumnVarNameInTable="columnaddr_address1" msprop:Generator_ColumnPropNameInRow="addr_address1" msprop:Generator_ColumnPropNameInTable="addr_address1Column" msprop:Generator_UserColumnName="addr_address1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_address2" msprop:Generator_ColumnVarNameInTable="columnaddr_address2" msprop:Generator_ColumnPropNameInRow="addr_address2" msprop:Generator_ColumnPropNameInTable="addr_address2Column" msprop:Generator_UserColumnName="addr_address2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_country_id" msprop:Generator_ColumnVarNameInTable="columnaddr_country_id" msprop:Generator_ColumnPropNameInRow="addr_country_id" msprop:Generator_ColumnPropNameInTable="addr_country_idColumn" msprop:Generator_UserColumnName="addr_country_id" type="xs:int" minOccurs="0" />
+              <xs:element name="country_title" msprop:Generator_ColumnVarNameInTable="columncountry_title" msprop:Generator_ColumnPropNameInRow="country_title" msprop:Generator_ColumnPropNameInTable="country_titleColumn" msprop:Generator_UserColumnName="country_title" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_province_id" msprop:Generator_ColumnVarNameInTable="columnaddr_province_id" msprop:Generator_ColumnPropNameInRow="addr_province_id" msprop:Generator_ColumnPropNameInTable="addr_province_idColumn" msprop:Generator_UserColumnName="addr_province_id" type="xs:int" minOccurs="0" />
+              <xs:element name="province_title" msprop:Generator_ColumnVarNameInTable="columnprovince_title" msprop:Generator_ColumnPropNameInRow="province_title" msprop:Generator_ColumnPropNameInTable="province_titleColumn" msprop:Generator_UserColumnName="province_title" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_city_id" msprop:Generator_ColumnVarNameInTable="columnaddr_city_id" msprop:Generator_ColumnPropNameInRow="addr_city_id" msprop:Generator_ColumnPropNameInTable="addr_city_idColumn" msprop:Generator_UserColumnName="addr_city_id" type="xs:int" minOccurs="0" />
+              <xs:element name="city_title" msprop:Generator_ColumnVarNameInTable="columncity_title" msprop:Generator_ColumnPropNameInRow="city_title" msprop:Generator_ColumnPropNameInTable="city_titleColumn" msprop:Generator_UserColumnName="city_title" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_zip" msprop:Generator_ColumnVarNameInTable="columnaddr_zip" msprop:Generator_ColumnPropNameInRow="addr_zip" msprop:Generator_ColumnPropNameInTable="addr_zipColumn" msprop:Generator_UserColumnName="addr_zip" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_phone" msprop:Generator_ColumnVarNameInTable="columnaddr_phone" msprop:Generator_ColumnPropNameInRow="addr_phone" msprop:Generator_ColumnPropNameInTable="addr_phoneColumn" msprop:Generator_UserColumnName="addr_phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_ext" msprop:Generator_ColumnVarNameInTable="columnaddr_ext" msprop:Generator_ColumnPropNameInRow="addr_ext" msprop:Generator_ColumnPropNameInTable="addr_extColumn" msprop:Generator_UserColumnName="addr_ext" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_mobile" msprop:Generator_ColumnVarNameInTable="columnaddr_mobile" msprop:Generator_ColumnPropNameInRow="addr_mobile" msprop:Generator_ColumnPropNameInTable="addr_mobileColumn" msprop:Generator_UserColumnName="addr_mobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_fax" msprop:Generator_ColumnVarNameInTable="columnaddr_fax" msprop:Generator_ColumnPropNameInRow="addr_fax" msprop:Generator_ColumnPropNameInTable="addr_faxColumn" msprop:Generator_UserColumnName="addr_fax" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_email" msprop:Generator_ColumnVarNameInTable="columnaddr_email" msprop:Generator_ColumnPropNameInRow="addr_email" msprop:Generator_ColumnPropNameInTable="addr_emailColumn" msprop:Generator_UserColumnName="addr_email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_web" msprop:Generator_ColumnVarNameInTable="columnaddr_web" msprop:Generator_ColumnPropNameInRow="addr_web" msprop:Generator_ColumnPropNameInTable="addr_webColumn" msprop:Generator_UserColumnName="addr_web" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_ref" msprop:Generator_ColumnVarNameInTable="columnaddr_ref" msprop:Generator_ColumnPropNameInRow="addr_ref" msprop:Generator_ColumnPropNameInTable="addr_refColumn" msprop:Generator_UserColumnName="addr_ref" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="addr_remarks" msprop:Generator_ColumnVarNameInTable="columnaddr_remarks" msprop:Generator_ColumnPropNameInRow="addr_remarks" msprop:Generator_ColumnPropNameInTable="addr_remarksColumn" msprop:Generator_UserColumnName="addr_remarks" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_ID" msprop:Generator_ColumnVarNameInTable="columnOwner_ID" msprop:Generator_ColumnPropNameInRow="Owner_ID" msprop:Generator_ColumnPropNameInTable="Owner_IDColumn" msprop:Generator_UserColumnName="Owner_ID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsVoucher" targetNamespace="http://tempuri.org/dsVoucher.xsd" xmlns:mstns="http://tempuri.org/dsVoucher.xsd" xmlns="http://tempuri.org/dsVoucher.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsVoucher" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsVoucher" msprop:Generator_UserDSName="dsVoucher">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsVoucher" msprop:Generator_TableClassName="dsVoucherDataTable" msprop:Generator_TableVarName="tabledsVoucher" msprop:Generator_TablePropName="_dsVoucher" msprop:Generator_RowDeletingName="dsVoucherRowDeleting" msprop:Generator_UserTableName="dsVoucher" msprop:Generator_RowChangingName="dsVoucherRowChanging" msprop:Generator_RowEvHandlerName="dsVoucherRowChangeEventHandler" msprop:Generator_RowDeletedName="dsVoucherRowDeleted" msprop:Generator_RowEvArgName="dsVoucherRowChangeEvent" msprop:Generator_RowChangedName="dsVoucherRowChanged" msprop:Generator_RowClassName="dsVoucherRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="doc_id" msprop:Generator_ColumnVarNameInTable="columndoc_id" msprop:Generator_ColumnPropNameInRow="doc_id" msprop:Generator_ColumnPropNameInTable="doc_idColumn" msprop:Generator_UserColumnName="doc_id" type="xs:int" />
+              <xs:element name="doc_strid" msprop:Generator_ColumnVarNameInTable="columndoc_strid" msprop:Generator_ColumnPropNameInRow="doc_strid" msprop:Generator_ColumnPropNameInTable="doc_stridColumn" msprop:Generator_UserColumnName="doc_strid">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="doc_date" msprop:Generator_ColumnVarNameInTable="columndoc_date" msprop:Generator_ColumnPropNameInRow="doc_date" msprop:Generator_ColumnPropNameInTable="doc_dateColumn" msprop:Generator_UserColumnName="doc_date" type="xs:dateTime" />
+              <xs:element name="doc_amt" msprop:Generator_ColumnVarNameInTable="columndoc_amt" msprop:Generator_ColumnPropNameInRow="doc_amt" msprop:Generator_ColumnPropNameInTable="doc_amtColumn" msprop:Generator_UserColumnName="doc_amt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AC_ID" msprop:Generator_ColumnVarNameInTable="columnAC_ID" msprop:Generator_ColumnPropNameInRow="AC_ID" msprop:Generator_ColumnPropNameInTable="AC_IDColumn" msprop:Generator_UserColumnName="AC_ID" type="xs:long" />
+              <xs:element name="ac_strid" msprop:Generator_ColumnVarNameInTable="columnac_strid" msprop:Generator_ColumnPropNameInRow="ac_strid" msprop:Generator_ColumnPropNameInTable="ac_stridColumn" msprop:Generator_UserColumnName="ac_strid">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ac_title" msprop:Generator_ColumnVarNameInTable="columnac_title" msprop:Generator_ColumnPropNameInRow="ac_title" msprop:Generator_ColumnPropNameInTable="ac_titleColumn" msprop:Generator_UserColumnName="ac_title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NARRATION" msprop:Generator_ColumnVarNameInTable="columnNARRATION" msprop:Generator_ColumnPropNameInRow="NARRATION" msprop:Generator_ColumnPropNameInTable="NARRATIONColumn" msprop:Generator_UserColumnName="NARRATION" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DEBIT" msprop:Generator_ColumnVarNameInTable="columnDEBIT" msprop:Generator_ColumnPropNameInRow="DEBIT" msprop:Generator_ColumnPropNameInTable="DEBITColumn" msprop:Generator_UserColumnName="DEBIT" type="xs:decimal" />
+              <xs:element name="CREDIT" msprop:Generator_ColumnVarNameInTable="columnCREDIT" msprop:Generator_ColumnPropNameInRow="CREDIT" msprop:Generator_ColumnPropNameInTable="CREDITColumn" msprop:Generator_UserColumnName="CREDIT" type="xs:decimal" />
+              <xs:element name="SERIAL_NO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnSERIAL_NO" msprop:Generator_ColumnPropNameInRow="SERIAL_NO" msprop:Generator_ColumnPropNameInTable="SERIAL_NOColumn" msprop:Generator_UserColumnName="SERIAL_NO" type="xs:int" />
+              <xs:element name="Doc_Remarks" msprop:Generator_ColumnVarNameInTable="columnDoc_Remarks" msprop:Generator_ColumnPropNameInRow="Doc_Remarks" msprop:Generator_ColumnPropNameInTable="Doc_RemarksColumn" msprop:Generator_UserColumnName="Doc_Remarks" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsListMastDtlSub" targetNamespace="http://tempuri.org/DsListMastDtlSub.xsd" xmlns:mstns="http://tempuri.org/DsListMastDtlSub.xsd" xmlns="http://tempuri.org/DsListMastDtlSub.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsListMastDtlSub" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsListMastDtlSub" msprop:Generator_UserDSName="DsListMastDtlSub">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dTListMastDtlSub" msprop:Generator_TableClassName="dTListMastDtlSubDataTable" msprop:Generator_TableVarName="tabledTListMastDtlSub" msprop:Generator_TablePropName="dTListMastDtlSub" msprop:Generator_RowDeletingName="dTListMastDtlSubRowDeleting" msprop:Generator_UserTableName="dTListMastDtlSub" msprop:Generator_RowChangingName="dTListMastDtlSubRowChanging" msprop:Generator_RowEvHandlerName="dTListMastDtlSubRowChangeEventHandler" msprop:Generator_RowDeletedName="dTListMastDtlSubRowDeleted" msprop:Generator_RowEvArgName="dTListMastDtlSubRowChangeEvent" msprop:Generator_RowChangedName="dTListMastDtlSubRowChanged" msprop:Generator_RowClassName="dTListMastDtlSubRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="mast_id" msprop:Generator_ColumnVarNameInTable="columnmast_id" msprop:Generator_ColumnPropNameInRow="mast_id" msprop:Generator_ColumnPropNameInTable="mast_idColumn" msprop:Generator_UserColumnName="mast_id" type="xs:long" minOccurs="0" />
+              <xs:element name="mast_title" msprop:Generator_ColumnVarNameInTable="columnmast_title" msprop:Generator_ColumnPropNameInRow="mast_title" msprop:Generator_ColumnPropNameInTable="mast_titleColumn" msprop:Generator_UserColumnName="mast_title" type="xs:string" minOccurs="0" />
+              <xs:element name="mast_st" msprop:Generator_ColumnVarNameInTable="columnmast_st" msprop:Generator_ColumnPropNameInRow="mast_st" msprop:Generator_ColumnPropNameInTable="mast_stColumn" msprop:Generator_UserColumnName="mast_st" type="xs:string" minOccurs="0" />
+              <xs:element name="dtl_id" msprop:Generator_ColumnVarNameInTable="columndtl_id" msprop:Generator_ColumnPropNameInRow="dtl_id" msprop:Generator_ColumnPropNameInTable="dtl_idColumn" msprop:Generator_UserColumnName="dtl_id" type="xs:long" minOccurs="0" />
+              <xs:element name="dtl_title" msprop:Generator_ColumnVarNameInTable="columndtl_title" msprop:Generator_ColumnPropNameInRow="dtl_title" msprop:Generator_ColumnPropNameInTable="dtl_titleColumn" msprop:Generator_UserColumnName="dtl_title" type="xs:string" minOccurs="0" />
+              <xs:element name="dtl_st" msprop:Generator_ColumnVarNameInTable="columndtl_st" msprop:Generator_ColumnPropNameInRow="dtl_st" msprop:Generator_ColumnPropNameInTable="dtl_stColumn" msprop:Generator_UserColumnName="dtl_st" type="xs:string" minOccurs="0" />
+              <xs:element name="sub_id" msprop:Generator_ColumnVarNameInTable="columnsub_id" msprop:Generator_ColumnPropNameInRow="sub_id" msprop:Generator_ColumnPropNameInTable="sub_idColumn" msprop:Generator_UserColumnName="sub_id" type="xs:long" minOccurs="0" />
+              <xs:element name="sub_title" msprop:Generator_ColumnVarNameInTable="columnsub_title" msprop:Generator_ColumnPropNameInRow="sub_title" msprop:Generator_ColumnPropNameInTable="sub_titleColumn" msprop:Generator_UserColumnName="sub_title" type="xs:string" minOccurs="0" />
+              <xs:element name="sub_st" msprop:Generator_ColumnVarNameInTable="columnsub_st" msprop:Generator_ColumnPropNameInRow="sub_st" msprop:Generator_ColumnPropNameInTable="sub_stColumn" msprop:Generator_UserColumnName="sub_st" type="xs:string" minOccurs="0" />
+              <xs:element name="sub_ordering" msprop:Generator_ColumnVarNameInTable="columnsub_ordering" msprop:Generator_ColumnPropNameInRow="sub_ordering" msprop:Generator_ColumnPropNameInTable="sub_orderingColumn" msprop:Generator_UserColumnName="sub_ordering" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsTerritories" targetNamespace="http://tempuri.org/dsTerritories.xsd" xmlns:mstns="http://tempuri.org/dsTerritories.xsd" xmlns="http://tempuri.org/dsTerritories.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="NizamiBrothersConnectionString3" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NizamiBrothersConnectionString3 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TaxSolution.Properties.Settings.GlobalReference.Default.NizamiBrothersConnectionString3" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="geo_territoryTableAdapter" GeneratorDataComponentClassName="geo_territoryTableAdapter" Name="geo_territory" UserDataComponentName="geo_territoryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NizamiBrothersConnectionString3 (Settings)" DbObjectName="NizamiBrothers.dbo.geo_territory" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        territory_id, territory_title, territory_st
+FROM            geo_territory
+ORDER BY territory_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="territory_id" DataSetColumn="territory_id" />
+              <Mapping SourceColumn="territory_title" DataSetColumn="territory_title" />
+              <Mapping SourceColumn="territory_st" DataSetColumn="territory_st" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsTerritories" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsTerritories" msprop:Generator_UserDSName="dsTerritories">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="geo_territory" msprop:Generator_TableClassName="geo_territoryDataTable" msprop:Generator_TableVarName="tablegeo_territory" msprop:Generator_RowChangedName="geo_territoryRowChanged" msprop:Generator_TablePropName="geo_territory" msprop:Generator_RowDeletingName="geo_territoryRowDeleting" msprop:Generator_RowChangingName="geo_territoryRowChanging" msprop:Generator_RowEvHandlerName="geo_territoryRowChangeEventHandler" msprop:Generator_RowDeletedName="geo_territoryRowDeleted" msprop:Generator_RowClassName="geo_territoryRow" msprop:Generator_UserTableName="geo_territory" msprop:Generator_RowEvArgName="geo_territoryRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="territory_id" msprop:Generator_ColumnVarNameInTable="columnterritory_id" msprop:Generator_ColumnPropNameInRow="territory_id" msprop:Generator_ColumnPropNameInTable="territory_idColumn" msprop:Generator_UserColumnName="territory_id" type="xs:int" />
+              <xs:element name="territory_title" msprop:Generator_ColumnVarNameInTable="columnterritory_title" msprop:Generator_ColumnPropNameInRow="territory_title" msprop:Generator_ColumnPropNameInTable="territory_titleColumn" msprop:Generator_UserColumnName="territory_title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="territory_st" msprop:Generator_ColumnVarNameInTable="columnterritory_st" msprop:Generator_ColumnPropNameInRow="territory_st" msprop:Generator_ColumnPropNameInTable="territory_stColumn" msprop:Generator_UserColumnName="territory_st">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsItemGroups" targetNamespace="http://tempuri.org/dsItemGroups.xsd" xmlns:mstns="http://tempuri.org/dsItemGroups.xsd" xmlns="http://tempuri.org/dsItemGroups.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="NizamiBrothersConnectionString3" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NizamiBrothersConnectionString3 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TaxSolution.Properties.Settings.GlobalReference.Default.NizamiBrothersConnectionString3" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="gds_GroupTableAdapter" GeneratorDataComponentClassName="gds_GroupTableAdapter" Name="gds_Group" UserDataComponentName="gds_GroupTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NizamiBrothersConnectionString3 (Settings)" DbObjectName="NizamiBrothers.dbo.gds_Group" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Group_id, Group_title, Group_st
+FROM            gds_Group
+ORDER BY Group_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Group_id" DataSetColumn="Group_id" />
+              <Mapping SourceColumn="Group_title" DataSetColumn="Group_title" />
+              <Mapping SourceColumn="Group_st" DataSetColumn="Group_st" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsItemGroups" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsItemGroups" msprop:Generator_UserDSName="dsItemGroups">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="gds_Group" msprop:Generator_TableClassName="gds_GroupDataTable" msprop:Generator_TableVarName="tablegds_Group" msprop:Generator_RowChangedName="gds_GroupRowChanged" msprop:Generator_TablePropName="gds_Group" msprop:Generator_RowDeletingName="gds_GroupRowDeleting" msprop:Generator_RowChangingName="gds_GroupRowChanging" msprop:Generator_RowEvHandlerName="gds_GroupRowChangeEventHandler" msprop:Generator_RowDeletedName="gds_GroupRowDeleted" msprop:Generator_RowClassName="gds_GroupRow" msprop:Generator_UserTableName="gds_Group" msprop:Generator_RowEvArgName="gds_GroupRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Group_id" msprop:Generator_ColumnVarNameInTable="columnGroup_id" msprop:Generator_ColumnPropNameInRow="Group_id" msprop:Generator_ColumnPropNameInTable="Group_idColumn" msprop:Generator_UserColumnName="Group_id" type="xs:int" />
+              <xs:element name="Group_title" msprop:Generator_ColumnVarNameInTable="columnGroup_title" msprop:Generator_ColumnPropNameInRow="Group_title" msprop:Generator_ColumnPropNameInTable="Group_titleColumn" msprop:Generator_UserColumnName="Group_title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Group_st" msprop:Generator_ColumnVarNameInTable="columnGroup_st" msprop:Generator_ColumnPropNameInRow="Group_st" msprop:Generator_ColumnPropNameInTable="Group_stColumn" msprop:Generator_UserColumnName="Group_st">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsMfgSum" targetNamespace="http://tempuri.org/dsMfgSum.xsd" xmlns:mstns="http://tempuri.org/dsMfgSum.xsd" xmlns="http://tempuri.org/dsMfgSum.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsMfgSum" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsMfgSum" msprop:Generator_UserDSName="dsMfgSum">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsMfgSum" msprop:Generator_TableClassName="dsMfgSumDataTable" msprop:Generator_TableVarName="tabledsMfgSum" msprop:Generator_TablePropName="_dsMfgSum" msprop:Generator_RowDeletingName="dsMfgSumRowDeleting" msprop:Generator_UserTableName="dsMfgSum" msprop:Generator_RowChangingName="dsMfgSumRowChanging" msprop:Generator_RowEvHandlerName="dsMfgSumRowChangeEventHandler" msprop:Generator_RowDeletedName="dsMfgSumRowDeleted" msprop:Generator_RowEvArgName="dsMfgSumRowChangeEvent" msprop:Generator_RowChangedName="dsMfgSumRowChanged" msprop:Generator_RowClassName="dsMfgSumRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OpeningDebit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOpeningDebit" msprop:Generator_ColumnPropNameInRow="OpeningDebit" msprop:Generator_ColumnPropNameInTable="OpeningDebitColumn" msprop:Generator_UserColumnName="OpeningDebit" type="xs:double" minOccurs="0" />
+              <xs:element name="OpeningCredit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOpeningCredit" msprop:Generator_ColumnPropNameInRow="OpeningCredit" msprop:Generator_ColumnPropNameInTable="OpeningCreditColumn" msprop:Generator_UserColumnName="OpeningCredit" type="xs:double" minOccurs="0" />
+              <xs:element name="OpeningBalance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOpeningBalance" msprop:Generator_ColumnPropNameInRow="OpeningBalance" msprop:Generator_ColumnPropNameInTable="OpeningBalanceColumn" msprop:Generator_UserColumnName="OpeningBalance" type="xs:double" minOccurs="0" />
+              <xs:element name="MfgDebit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMfgDebit" msprop:Generator_ColumnPropNameInRow="MfgDebit" msprop:Generator_ColumnPropNameInTable="MfgDebitColumn" msprop:Generator_UserColumnName="MfgDebit" type="xs:double" minOccurs="0" />
+              <xs:element name="MfgCredit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMfgCredit" msprop:Generator_ColumnPropNameInRow="MfgCredit" msprop:Generator_ColumnPropNameInTable="MfgCreditColumn" msprop:Generator_UserColumnName="MfgCredit" type="xs:double" minOccurs="0" />
+              <xs:element name="MfgBalance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMfgBalance" msprop:Generator_ColumnPropNameInRow="MfgBalance" msprop:Generator_ColumnPropNameInTable="MfgBalanceColumn" msprop:Generator_UserColumnName="MfgBalance" type="xs:double" minOccurs="0" />
+              <xs:element name="ExtraDebit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExtraDebit" msprop:Generator_ColumnPropNameInRow="ExtraDebit" msprop:Generator_ColumnPropNameInTable="ExtraDebitColumn" msprop:Generator_UserColumnName="ExtraDebit" type="xs:double" minOccurs="0" />
+              <xs:element name="ExtraCredit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExtraCredit" msprop:Generator_ColumnPropNameInRow="ExtraCredit" msprop:Generator_ColumnPropNameInTable="ExtraCreditColumn" msprop:Generator_UserColumnName="ExtraCredit" type="xs:double" minOccurs="0" />
+              <xs:element name="ExtraBalance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExtraBalance" msprop:Generator_ColumnPropNameInRow="ExtraBalance" msprop:Generator_ColumnPropNameInTable="ExtraBalanceColumn" msprop:Generator_UserColumnName="ExtraBalance" type="xs:double" minOccurs="0" />
+              <xs:element name="SubTotal" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSubTotal" msprop:Generator_ColumnPropNameInRow="SubTotal" msprop:Generator_ColumnPropNameInTable="SubTotalColumn" msprop:Generator_UserColumnName="SubTotal" type="xs:double" minOccurs="0" />
+              <xs:element name="WasteDebit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWasteDebit" msprop:Generator_ColumnPropNameInRow="WasteDebit" msprop:Generator_ColumnPropNameInTable="WasteDebitColumn" msprop:Generator_UserColumnName="WasteDebit" type="xs:double" minOccurs="0" />
+              <xs:element name="WasteCredit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWasteCredit" msprop:Generator_ColumnPropNameInRow="WasteCredit" msprop:Generator_ColumnPropNameInTable="WasteCreditColumn" msprop:Generator_UserColumnName="WasteCredit" type="xs:double" minOccurs="0" />
+              <xs:element name="WasteBalance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWasteBalance" msprop:Generator_ColumnPropNameInRow="WasteBalance" msprop:Generator_ColumnPropNameInTable="WasteBalanceColumn" msprop:Generator_UserColumnName="WasteBalance" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalAmount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalAmount" msprop:Generator_ColumnPropNameInRow="TotalAmount" msprop:Generator_ColumnPropNameInTable="TotalAmountColumn" msprop:Generator_UserColumnName="TotalAmount" type="xs:double" minOccurs="0" />
+              <xs:element name="PaidAmount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPaidAmount" msprop:Generator_ColumnPropNameInRow="PaidAmount" msprop:Generator_ColumnPropNameInTable="PaidAmountColumn" msprop:Generator_UserColumnName="PaidAmount" type="xs:double" minOccurs="0" />
+              <xs:element name="WholeDebit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWholeDebit" msprop:Generator_ColumnPropNameInRow="WholeDebit" msprop:Generator_ColumnPropNameInTable="WholeDebitColumn" msprop:Generator_UserColumnName="WholeDebit" type="xs:double" minOccurs="0" />
+              <xs:element name="WholeCredit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWholeCredit" msprop:Generator_ColumnPropNameInRow="WholeCredit" msprop:Generator_ColumnPropNameInTable="WholeCreditColumn" msprop:Generator_UserColumnName="WholeCredit" type="xs:double" minOccurs="0" />
+              <xs:element name="WholeBalance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnWholeBalance" msprop:Generator_ColumnPropNameInRow="WholeBalance" msprop:Generator_ColumnPropNameInTable="WholeBalanceColumn" msprop:Generator_UserColumnName="WholeBalance" type="xs:double" minOccurs="0" />
+              <xs:element name="NetOffBalance" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNetOffBalance" msprop:Generator_ColumnPropNameInRow="NetOffBalance" msprop:Generator_ColumnPropNameInTable="NetOffBalanceColumn" msprop:Generator_UserColumnName="NetOffBalance" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

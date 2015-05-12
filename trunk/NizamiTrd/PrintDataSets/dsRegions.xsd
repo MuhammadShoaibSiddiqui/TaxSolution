@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsRegions" targetNamespace="http://tempuri.org/dsRegions.xsd" xmlns:mstns="http://tempuri.org/dsRegions.xsd" xmlns="http://tempuri.org/dsRegions.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="NizamiBrothersConnectionString3" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NizamiBrothersConnectionString3 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TaxSolution.Properties.Settings.GlobalReference.Default.NizamiBrothersConnectionString3" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="geo_regionTableAdapter" GeneratorDataComponentClassName="geo_regionTableAdapter" Name="geo_region" UserDataComponentName="geo_regionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NizamiBrothersConnectionString3 (Settings)" DbObjectName="NizamiBrothers.dbo.geo_region" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        region_id, region_title, region_st
+FROM            geo_region
+ORDER BY region_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="region_id" DataSetColumn="region_id" />
+              <Mapping SourceColumn="region_title" DataSetColumn="region_title" />
+              <Mapping SourceColumn="region_st" DataSetColumn="region_st" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsRegions" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsRegions" msprop:Generator_UserDSName="dsRegions">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="geo_region" msprop:Generator_TableClassName="geo_regionDataTable" msprop:Generator_TableVarName="tablegeo_region" msprop:Generator_RowChangedName="geo_regionRowChanged" msprop:Generator_TablePropName="geo_region" msprop:Generator_RowDeletingName="geo_regionRowDeleting" msprop:Generator_RowChangingName="geo_regionRowChanging" msprop:Generator_RowEvHandlerName="geo_regionRowChangeEventHandler" msprop:Generator_RowDeletedName="geo_regionRowDeleted" msprop:Generator_RowClassName="geo_regionRow" msprop:Generator_UserTableName="geo_region" msprop:Generator_RowEvArgName="geo_regionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="region_id" msprop:Generator_ColumnVarNameInTable="columnregion_id" msprop:Generator_ColumnPropNameInRow="region_id" msprop:Generator_ColumnPropNameInTable="region_idColumn" msprop:Generator_UserColumnName="region_id" type="xs:int" />
+              <xs:element name="region_title" msprop:Generator_ColumnVarNameInTable="columnregion_title" msprop:Generator_ColumnPropNameInRow="region_title" msprop:Generator_ColumnPropNameInTable="region_titleColumn" msprop:Generator_UserColumnName="region_title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="region_st" msprop:Generator_ColumnVarNameInTable="columnregion_st" msprop:Generator_ColumnPropNameInRow="region_st" msprop:Generator_ColumnPropNameInTable="region_stColumn" msprop:Generator_UserColumnName="region_st">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

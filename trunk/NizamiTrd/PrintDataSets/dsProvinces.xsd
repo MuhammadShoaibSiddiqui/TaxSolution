@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsProvinces" targetNamespace="http://tempuri.org/dsProvinces.xsd" xmlns:mstns="http://tempuri.org/dsProvinces.xsd" xmlns="http://tempuri.org/dsProvinces.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="NizamiBrothersConnectionString3" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NizamiBrothersConnectionString3 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TaxSolution.Properties.Settings.GlobalReference.Default.NizamiBrothersConnectionString3" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="geo_provinceTableAdapter" GeneratorDataComponentClassName="geo_provinceTableAdapter" Name="geo_province" UserDataComponentName="geo_provinceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NizamiBrothersConnectionString3 (Settings)" DbObjectName="NizamiBrothers.dbo.geo_province" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        province_id, province_title, province_st
+FROM            geo_province
+ORDER BY province_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="province_id" DataSetColumn="province_id" />
+              <Mapping SourceColumn="province_title" DataSetColumn="province_title" />
+              <Mapping SourceColumn="province_st" DataSetColumn="province_st" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsProvinces" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsProvinces" msprop:Generator_UserDSName="dsProvinces">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="geo_province" msprop:Generator_TableClassName="geo_provinceDataTable" msprop:Generator_TableVarName="tablegeo_province" msprop:Generator_RowChangedName="geo_provinceRowChanged" msprop:Generator_TablePropName="geo_province" msprop:Generator_RowDeletingName="geo_provinceRowDeleting" msprop:Generator_RowChangingName="geo_provinceRowChanging" msprop:Generator_RowEvHandlerName="geo_provinceRowChangeEventHandler" msprop:Generator_RowDeletedName="geo_provinceRowDeleted" msprop:Generator_RowClassName="geo_provinceRow" msprop:Generator_UserTableName="geo_province" msprop:Generator_RowEvArgName="geo_provinceRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="province_id" msprop:Generator_ColumnVarNameInTable="columnprovince_id" msprop:Generator_ColumnPropNameInRow="province_id" msprop:Generator_ColumnPropNameInTable="province_idColumn" msprop:Generator_UserColumnName="province_id" type="xs:int" />
+              <xs:element name="province_title" msprop:Generator_ColumnVarNameInTable="columnprovince_title" msprop:Generator_ColumnPropNameInRow="province_title" msprop:Generator_ColumnPropNameInTable="province_titleColumn" msprop:Generator_UserColumnName="province_title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="province_st" msprop:Generator_ColumnVarNameInTable="columnprovince_st" msprop:Generator_ColumnPropNameInRow="province_st" msprop:Generator_ColumnPropNameInTable="province_stColumn" msprop:Generator_UserColumnName="province_st">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
