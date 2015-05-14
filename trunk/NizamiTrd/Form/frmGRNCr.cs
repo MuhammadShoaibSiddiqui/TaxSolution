@@ -32,23 +32,32 @@ namespace TaxSolution
 {
     enum GColGrn
     {
-        ItemID=0, 
-        ItemName=1,
-        UOMID=2,
-        UOMName=3,
-        GodownID=4,
-        GodownName=5,
-        Qty=6,
-        Rate=7,
-        Bundle=8,
-        MeshTotal=9,
-        Amount=10,
-        isBundle=11,
-        isMesh=12,
-        Length=13,
-        LenDec=14,
-        Width=15,
-        WidDec=16
+        ItemID = 0,
+        ItemName = 1,
+        UOMID = 2,
+        UOMName = 3,
+        GodownID = 4,
+        GodownName = 5,
+        Qty = 6,
+        Rate = 7,
+        Value = 8,
+        DiscountPercentage = 9,
+        DiscountValue = 10,
+        AfterDiscount = 11,
+        SalesTaxPercentage = 12,
+        SalesTaxAmount = 13,
+        FEDPercentage = 14,
+        FEDValue = 15,
+        NetAmount = 16,
+        // UnUsed
+        isMesh = 17,
+        Length = 18,
+        Bundle = 19,
+        MeshTotal = 20,
+        Width = 21,
+        isBundle = 22,
+        Amount = 23
+
     }
     public partial class frmGRNCr : Form
     {
@@ -251,32 +260,32 @@ namespace TaxSolution
             lHDR += ",Item Name";                      // 1-   Hiden
             lHDR += ",UOM ID";                          // 2-   
             lHDR += ",UOM Name";                          // 3-   
-            lHDR += ",Godown ID";                          // 4-   
-            lHDR += ",Godown Name";                          // 5-   
+            //lHDR += ",Godown ID";                          // 4-   
+            //lHDR += ",Godown Name";                          // 5-   
             lHDR += ",Qty";                          // 6-   
             lHDR += ",Rate";                          // 7-   
-            lHDR += ",Bundle";                          // 8-   
-            lHDR += ",Mesh Total";                          // 9-   
-            lHDR += ",Amount";                          // 10-   
+            lHDR += ",Value";                          // 8-   
+            lHDR += ",Disc %";                          // 9-   
+            lHDR += ",Disc Value";                          // 10-   
             //lHDR += ",is \n\r Bundle";                          // 11-   \n\r
             //lHDR += ",is \n\r Mesh";                          // 12-   
-            lHDR += ",is Bundle";                          // 11-   \n\r
-            lHDR += ",is Mesh";                          // 12-   
-            lHDR += ",Length";                          // 13-   
-            lHDR += ",Len.Dec";                          // 14-   
-            lHDR += ",Width";                          // 15-   
-            lHDR += ",Wid.Dec";                          // 16-   
+            lHDR += ",After Disc";                          // 11-   \n\r
+            lHDR += ",Sales Tax %";                          // 12-   
+            lHDR += ",Sales Tax Amount";                          // 13-   
+            lHDR += ",FED %";                          // 14-   
+            lHDR += ",FED Value";                          // 15-   
+            lHDR += ",Net Amount";                          // 16-   
             //lHDR += ",''";
 
             clsDbManager.SetGridHeaderCmb(
                 grdVoucher,
-                17,
+                15,
                 lHDR,
-                " 5,10, 3, 5, 2, 5, 7, 7, 7, 7, 7, 4, 4, 7, 7, 7,20",
-                " 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
-                " 5,10, 3, 5, 2, 5, 7, 7, 7, 7, 7, 4, 4, 7, 7, 7,20",
-                " T, T, H, T, H, T,N2,N2,N2,N2,N2,CH,CH,N2,N2,N2,N2",
-                " 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1",
+                " 5,10, 3, 5, 7, 7, 7, 7, 7, 4, 4, 7, 7, 7,20",
+                " 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
+                " 5,10, 3, 5, 7, 7, 7, 7, 7, 4, 4, 7, 7, 7,20",
+                " T, T, H, T,N2,N2,N2,N2,N2,N2,N2,N2,N2,N2,N2",
+                " 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1",
                 "DATA",
                 null,
                 null,
@@ -284,7 +293,7 @@ namespace TaxSolution
                 null,
                 false,
                 2);
-            grdVoucher.Columns[(int)GColGrn.WidDec].MinimumWidth = 20;
+            //grdVoucher.Columns[(int)GColGrn.WidDec].MinimumWidth = 20;
 
         }
 
@@ -599,8 +608,8 @@ namespace TaxSolution
         {
             if (msk_AccountID.Text.ToString().Trim('_', ' ', '-') == "")
             {
-                MessageBox.Show("GL Code is Empty! Unable to Process...", this.Text.ToString());
-                msk_AccountID.Focus();
+                //MessageBox.Show("GL Code is Empty! Unable to Process...", this.Text.ToString());
+                //msk_AccountID.Focus();
             }
 
             DataSet ds = new DataSet();
@@ -624,14 +633,14 @@ namespace TaxSolution
                 }
                 else
                 {
-                    MessageBox.Show("Unable to Get Account Code...", this.Text.ToString());
-                    msk_AccountID.Focus();
+                    //MessageBox.Show("Unable to Get Account Code...", this.Text.ToString());
+                    //msk_AccountID.Focus();
                 }
             }
             catch
             {
-                MessageBox.Show("Unable to Get Account Code...", this.Text.ToString());
-                msk_AccountID.Focus();
+                //MessageBox.Show("Unable to Get Account Code...", this.Text.ToString());
+                //msk_AccountID.Focus();
             }
         }
 
@@ -777,7 +786,7 @@ namespace TaxSolution
             tSQL += " AND GodownID=1;";
             tSQL += " SELECT isNull(SUM(ISNULL(Qty_In,0)) - Sum(ISNULL(Qty_Out,0)),0) AS GodownBalance ";
             tSQL += " FROM inv_trandtl WHERE doc_fiscal_id=1 AND ItemID='" + txtItemID.Text.ToString() + "'";
-            tSQL += " AND GodownID=" + cboGodown.SelectedValue.ToString();
+            //tSQL += " AND GodownID=" + cboGodown.SelectedValue.ToString();
 
             try
             {
@@ -804,7 +813,7 @@ namespace TaxSolution
             }
             catch
             {
-                MessageBox.Show("Unable to Get Account Code...", this.Text.ToString());
+               // MessageBox.Show("Unable to Get Account Code...", this.Text.ToString());
             }
         }
 
@@ -820,19 +829,18 @@ namespace TaxSolution
                     lblItemName.Text, 
                     cbo_UOM.SelectedValue.ToString(),
                     cbo_UOM.Text,
-                    cboGodown.SelectedValue.ToString(),
-                    cboGodown.Text,
                     txtQty.Text.ToString(),
                     txtRate.Text.ToString(),
-                    (txtBundle.Text == "" ? "1" : txtBundle.Text).ToString(),
-                    lblTotalMeasure.Text.ToString(),
-                    lblAmount.Text.ToString(),
-                    (chk_BundleCalc.Checked == true ? 1 : 0),
-                    (chk_Mesh.Checked == true ? 1 : 0), 
-                    txtLength.Text.ToString(),
-                    txtLenDec.Text.ToString(),
-                    txtWidth.Text.ToString(),
-                    txtWidDec.Text.ToString()
+                    Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text),
+                    txtDiscountPercentage.Text.ToString(),
+                    txtDiscountValue.Text.ToString(),
+                    (Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString())),
+                    txtSalesTaxPercentage.Text.ToString(),
+                    ((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) * (Convert.ToInt16(txtSalesTaxPercentage.Text.ToString()) / 100), 
+                    txtFEDPercentage.Text.ToString(),
+                    ((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) * (Convert.ToInt16(txtFEDPercentage.Text.ToString()) / 100),
+                    ((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) + (((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) * (Convert.ToInt16(txtSalesTaxPercentage.Text.ToString()) / 100)) + (((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) * (Convert.ToInt16(txtFEDPercentage.Text.ToString()) / 100))
+                    
                     );
                 //lblAcID.Text,
                 //ClearSub_Add_Btn();
@@ -886,83 +894,83 @@ namespace TaxSolution
             for (int i = 0; i < grdVoucher.RowCount; i++)
             {
                 // isBundle Check
-                if (grdVoucher.Rows[i].Cells[(int)GColGrn.isBundle].Value == null)
-                {
-                    str_IsBundle = clsDbManager.ConvBit("False");
-                }
-                else
-                {
-                    str_IsBundle = clsDbManager.ConvBit(grdVoucher.Rows[i].Cells[(int)GColGrn.isBundle].Value.ToString());
-                }
+            //    if (grdVoucher.Rows[i].Cells[(int)GColGrn.isBundle].Value == null)
+            //    {
+            //        str_IsBundle = clsDbManager.ConvBit("False");
+            //    }
+            //    else
+            //    {
+            //        str_IsBundle = clsDbManager.ConvBit(grdVoucher.Rows[i].Cells[(int)GColGrn.isBundle].Value.ToString());
+            //    }
 
-                // isMesh Check
-                if (grdVoucher.Rows[i].Cells[(int)GColGrn.isMesh].Value == null)
-                {
-                    str_IsMesh = clsDbManager.ConvBit("False");
-                }
-                else
-                {
-                    str_IsMesh = clsDbManager.ConvBit(grdVoucher.Rows[i].Cells[(int)GColGrn.isMesh].Value.ToString());
-                }
+            //    // isMesh Check
+            //    if (grdVoucher.Rows[i].Cells[(int)GColGrn.isMesh].Value == null)
+            //    {
+            //        str_IsMesh = clsDbManager.ConvBit("False");
+            //    }
+            //    else
+            //    {
+            //        str_IsMesh = clsDbManager.ConvBit(grdVoucher.Rows[i].Cells[(int)GColGrn.isMesh].Value.ToString());
+            //    }
 
-                if (str_IsBundle == "1")
-                {
-                    grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value =
-                        clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Rate].Value.ToString())
-                        * clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Bundle].Value.ToString());
-                }
+            //    if (str_IsBundle == "1")
+            //    {
+            //        grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value =
+            //            clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Rate].Value.ToString())
+            //            * clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Bundle].Value.ToString());
+            //    }
 
-                if (str_IsMesh == "1")
-                {
-                    grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value =
-                        clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Rate].Value.ToString())
-                        * clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Bundle].Value.ToString())
-                        * (clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Width].Value.ToString())
-                         + ((clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.WidDec].Value.ToString())) * clsDbManager.ConvDecimal("0.0833")))
-                        * (clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Length].Value.ToString())
-                         + ((clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.LenDec].Value.ToString())) * clsDbManager.ConvDecimal("0.0833")))
-                        ;
+            //    if (str_IsMesh == "1")
+            //    {
+            //        grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value =
+            //            clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Rate].Value.ToString())
+            //            * clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Bundle].Value.ToString())
+            //            * (clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Width].Value.ToString())
+            //             + ((clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.WidDec].Value.ToString())) * clsDbManager.ConvDecimal("0.0833")))
+            //            * (clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Length].Value.ToString())
+            //             + ((clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.LenDec].Value.ToString())) * clsDbManager.ConvDecimal("0.0833")))
+            //            ;
 
                     
-                    //float fLength;
-                    //float fWidth;
-                    //fLength = float.Parse(txtLenDec.Text);
+            //        //float fLength;
+            //        //float fWidth;
+            //        //fLength = float.Parse(txtLenDec.Text);
 
-                    //fLength = float.Parse(txtLength.Text) + ((float.Parse(txtLenDec.Text) * 0.0833f));
-                    //fWidth = float.Parse(txtWidth.Text) + ((float.Parse(txtWidDec.Text) * 0.0833f));
-                    //lblTotalMeasure.Text = ((fLength * fWidth) * int.Parse(txtBundle.Text)).ToString();
-                    //lblAmount.Text = (float.Parse(lblTotalMeasure.Text) * float.Parse(txtRate.Text)).ToString();
+            //        //fLength = float.Parse(txtLength.Text) + ((float.Parse(txtLenDec.Text) * 0.0833f));
+            //        //fWidth = float.Parse(txtWidth.Text) + ((float.Parse(txtWidDec.Text) * 0.0833f));
+            //        //lblTotalMeasure.Text = ((fLength * fWidth) * int.Parse(txtBundle.Text)).ToString();
+            //        //lblAmount.Text = (float.Parse(lblTotalMeasure.Text) * float.Parse(txtRate.Text)).ToString();
 
-                }
+            //    }
 
-                if (str_IsBundle == "0" && str_IsMesh == "0")
-                {
-                    grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value =
-                        clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Rate].Value.ToString())
-                        * clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Qty].Value.ToString());
-                        //* Convert.ToDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Bundle].Value);
-                }
+            //    if (str_IsBundle == "0" && str_IsMesh == "0")
+            //    {
+            //        grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value =
+            //            clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Rate].Value.ToString())
+            //            * clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Qty].Value.ToString());
+            //            //* Convert.ToDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Bundle].Value);
+            //    }
 
-                //if (grdVoucher.Rows[i].Cells[(int)GColGrn.isBundle].Value.GetType = checked)
-                //{
-                //    bcheck= decimal.TryParse(grdVoucher.Rows[i].Cells[(int)GColGrn.Rate].Value, out outValue);
+            //    //if (grdVoucher.Rows[i].Cells[(int)GColGrn.isBundle].Value.GetType = checked)
+            //    //{
+            //    //    bcheck= decimal.TryParse(grdVoucher.Rows[i].Cells[(int)GColGrn.Rate].Value, out outValue);
 
-                //    grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value = 
-                //        decimal.TryParse(grdVoucher.Rows[i].Cells[(int)GColGrn.Rate].Value, outValue) 
-                //        * decimal.TryParse(grdVoucher.Rows[i].Cells[(int)GColGrn.Bundle].Value, outValue);
-                //}
+            //    //    grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value = 
+            //    //        decimal.TryParse(grdVoucher.Rows[i].Cells[(int)GColGrn.Rate].Value, outValue) 
+            //    //        * decimal.TryParse(grdVoucher.Rows[i].Cells[(int)GColGrn.Bundle].Value, outValue);
+            //    //}
 
-                if (grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value != null)
-                {
-                    bcheck = decimal.TryParse(grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value.ToString(), out outValue);
-                    if (bcheck)
-                    {
-                        rtnVal += outValue;
-                        fTotalAmount += outValue;
-                        fTotalQty += clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Qty].Value.ToString());
-                    }
-                }
-                 //grdVoucher[2, i].Value = (i + 1).ToString();
+            //    if (grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value != null)
+            //    {
+            //        bcheck = decimal.TryParse(grdVoucher.Rows[i].Cells[(int)GColGrn.Amount].Value.ToString(), out outValue);
+            //        if (bcheck)
+            //        {
+            //            rtnVal += outValue;
+            //            fTotalAmount += outValue;
+            //            fTotalQty += clsDbManager.ConvDecimal(grdVoucher.Rows[i].Cells[(int)GColGrn.Qty].Value.ToString());
+            //        }
+            //    }
+            //     //grdVoucher[2, i].Value = (i + 1).ToString();
             }
 
             lblTotalAmount.Text = String.Format("{0:0,0.00}", fTotalAmount);
@@ -1389,43 +1397,42 @@ namespace TaxSolution
                     string tFieldName = "";
                     string tColType = "";
                     //
-                    tColType += "  N0"; //0 ItemID
-                    tColType += ", TB"; //1 Item Name/Narration
-                    tColType += ", N0"; //2 UOM
-                    tColType += ", SKP"; //3 UOM Name
-                    tColType += ", N0";  //4 Godown   
-                    tColType += ", SKP"; //5 Godown Name
-                    tColType += ", N2";  //6 Qty      
-                    tColType += ", N3";  //7 Rate
-                    tColType += ", N0";  //8    Bundle      
-                    tColType += ", N2";  //9    MeshTotal
-                    tColType += ", SKP";  //10  Amount        
-                    tColType += ", CH";  //11   isBundle      
-                    tColType += ", CH";  //12   isMesh      
-                    tColType += ", N2";  //13   Length      
-                    tColType += ", N2";  //14   LenDec      
-                    tColType += ", N2";  //15   Width      
-                    tColType += ", N2";  //16   WidDec       
+                    tColType += "  N0";     //ItemID = 0,
+                    tColType += ", TB";     //ItemName = 1,
+                    tColType += ", N0";     //UOMID = 2,
+                    tColType += ", SKP";    //UOMName = 3,
+                   // tColType += ", N0";     //GodownID = 4,
+                   // tColType += ", SKP";    //GodownName = 5,
+                    tColType += ", N2";     //Qty = 6,
+                    tColType += ", N3";     //Rate = 7,
+                    tColType += ", N0";     //Value = 8,
+                    tColType += ", N2";     //DiscountPercentage = 9,
+                    tColType += ", SKP";    //DiscountValue = 10,
+                    tColType += ", N2";     //AfterDiscount = 11,
+                    tColType += ", N2";     //SalesTaxPercentage = 12,
+                    tColType += ", N2";     //SalesTaxAmount = 13,
+                    tColType += ", N2";     //FEDPercentage = 14,
+                    tColType += ", N2";     //FEDValue = 15,
+                    tColType += ", N2";     //NetAmount = 16,
                     //
 
-                    tFieldName += "  ItemID";        //0  
-                    tFieldName += ", Narration";     //1  
-                    //
-                    tFieldName += ", UOMID";         //2  
-                    tFieldName += ", '' as skp2";    //3  
-                    tFieldName += ", GodownID";      //4  
-                    tFieldName += ", '' as skp3";    //5  
-                    tFieldName += ", Qty_In";       //6  
-                    tFieldName += ", Rate";          //7  
-                    tFieldName += ", Bundle";        //8  
-                    tFieldName += ", MeshTotal";     //9  
-                    tFieldName += ", '' as skp4";    //10  
-                    tFieldName += ", isBundle";      //11 
-                    tFieldName += ", isMesh";        //12 
-                    tFieldName += ", Length";        //13 
-                    tFieldName += ", LenDec";        //14 
-                    tFieldName += ", Width";         //15 
-                    tFieldName += ", WidDec";        //16 
+                    tFieldName += "  ItemID";       //ItemID = 0,
+                    tFieldName += ", Narration";    //ItemName = 1,
+                    tFieldName += ", UOMID";        //UOMID = 2,
+                    tFieldName += ", '' as skp2";   //UOMName = 3,
+                    //tFieldName += ", GodownID";      //GodownID = 4,
+                    //tFieldName += ", '' as skp3";    //GodownName = 5,
+                    tFieldName += ", Qty_In";       //Qty = 6,
+                    tFieldName += ", Rate";         //Rate = 7,
+                    tFieldName += ", Bundle";       //Value = 8,
+                    tFieldName += ", MeshTotal";    //DiscountPercentage = 9,
+                    tFieldName += ", '' as skp4";   //DiscountValue = 10,
+                    tFieldName += ", isBundle";     //AfterDiscount = 11,
+                    tFieldName += ", isMesh";       //SalesTaxPercentage = 12,
+                    tFieldName += ", Length";       //SalesTaxAmount = 13,
+                    tFieldName += ", LenDec";       //FEDPercentage = 14,
+                    tFieldName += ", Width";        //FEDValue = 15,
+                    tFieldName += ", WidDec";       //NetAmount = 16,
                     // 
                     string tAddFieldName = "Doc_vt_id, Doc_fiscal_ID, Doc_ID";
                     string tAddValue = fDocTypeID.ToString() + ", " + fDocFiscal.ToString() + ", " + fDocID.ToString();
@@ -2131,13 +2138,13 @@ namespace TaxSolution
         {
             if (string.IsNullOrEmpty(txtManualDoc.Text))
             {
-                MessageBox.Show("Manual Voucher Number is Empty! Unable to Save");
-                return;
+                //MessageBox.Show("Manual Voucher Number is Empty! Unable to Save");
+                //return;
             }
             if (msk_AccountID.Text.Trim(' ', '_') == "")
             {
-                MessageBox.Show("Master GL Code is Empty! Unable to Save");
-                return;
+                //MessageBox.Show("Master GL Code is Empty! Unable to Save");
+                //return;
             }
             else
             {
@@ -2373,7 +2380,7 @@ namespace TaxSolution
             }
             catch
             {
-                MessageBox.Show("Unable to Get Account Code...", this.Text.ToString());
+                //MessageBox.Show("Unable to Get Account Code...", this.Text.ToString());
             }
         }
 
@@ -2508,8 +2515,8 @@ namespace TaxSolution
           tFieldList += ", goodsitem_title";   //1
           tFieldList += ", UOMID ";            //2
           tFieldList += ", goodsuom_title";    //3
-          tFieldList += ", GodownID";          //4
-          tFieldList += ", Godown_title";      //5
+         // tFieldList += ", GodownID";          //4
+        //  tFieldList += ", Godown_title";      //5
           tFieldList += ", Qty_In";           //6
           tFieldList += ", Rate";              //7
           tFieldList += ", Bundle";            //8
@@ -2530,15 +2537,15 @@ namespace TaxSolution
           tColFormat += ",TB";                                                    // 1-    sn
           tColFormat += ",TB";                                                    // 2-
           tColFormat += ",TB";                                                    // 3-
-          tColFormat += ",TB";                                                    // 4-
-          tColFormat += ",TB";                                                    // 5-
+          //tColFormat += ",TB";                                                    // 4-
+          //tColFormat += ",TB";                                                    // 5-
           tColFormat += ",N2";                                                    // 6-    
           tColFormat += ",N2";                                                    // 7-
           tColFormat += ",N2";                                                    // 8-
           tColFormat += ",N2";                                                    // 9-
-          tColFormat += ",N2";                                                    // 10-
-          tColFormat += ",CH";                                                    // 11-
-          tColFormat += ",CH";                                                    // 12-
+         // tColFormat += ",N2";                                                    // 10-
+         // tColFormat += ",N2";                                                    // 11-
+          tColFormat += ",N2";                                                    // 12-
           tColFormat += ",N2";                                                    // 13-
           tColFormat += ",N2";                                                    // 14-
           tColFormat += ",N2";                                                    // 15-
@@ -2900,8 +2907,8 @@ namespace TaxSolution
         {
             if (clsDbManager.ConvDecimal(txtQty.Text.ToString()) == 0)
             {
-                MessageBox.Show("Qty is Empty! Unable to Process", this.Text.ToString());
-                txtQty.Focus();
+                //MessageBox.Show("Qty is Empty! Unable to Process", this.Text.ToString());
+                //txtQty.Focus();
             }
         }
 
@@ -2909,8 +2916,8 @@ namespace TaxSolution
         {
             if (clsDbManager.ConvDecimal(txtRate.Text.ToString()) == 0)
             {
-                MessageBox.Show("Rate is Empty! Unable to Process", this.Text.ToString());
-                txtRate.Focus();
+                //MessageBox.Show("Rate is Empty! Unable to Process", this.Text.ToString());
+                //txtRate.Focus();
             }
         }
 
@@ -2925,10 +2932,25 @@ namespace TaxSolution
             {
                 if (txtManualDoc.Text == "")
                 {
-                    MessageBox.Show("Voucher # is Empty! Unable to Process", this.Text.ToString());
-                    txtManualDoc.Focus();
+                  //  MessageBox.Show("Voucher # is Empty! Unable to Process", this.Text.ToString());
+                   // txtManualDoc.Focus();
                 }
             }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
