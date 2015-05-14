@@ -162,7 +162,7 @@ namespace TaxSolution
             mtextID.HidePromptOnLeave = true;
             mtextOrdering.HidePromptOnLeave = true;
             //
-            textTitle.MaxLength = 50;
+            textTitle.MaxLength = 150;
             textSt.MaxLength = 15;
             textaTitle.MaxLength = 50;
             textSearchTree.MaxLength = 30;
