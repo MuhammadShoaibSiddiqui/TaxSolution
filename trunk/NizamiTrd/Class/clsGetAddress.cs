@@ -32,7 +32,7 @@ namespace TaxSolution.Class
         lSQL += "a.addr_province_id, p.province_title,";
         lSQL += "a.addr_city_id, ct.city_title,a.addr_zip,";
         lSQL += "a.addr_phone, a.addr_ext, a.addr_mobile, a.addr_fax, a.addr_email, a.addr_web,";
-        lSQL += "a.addr_ref, a.addr_remarks, a.isdisabled ";
+        lSQL += "a.addr_ntn, a.addr_strn, a.addr_ref, a.addr_remarks, a.isdisabled ";
         lSQL += " FROM gl_ac g ";
         lSQL += " LEFT OUTER JOIN cmn_address a ON a.addr_uid = g.addr_uid ";
         // Note: for the join 'LEFT' means left of equal sign.
@@ -259,6 +259,12 @@ namespace TaxSolution.Class
                       break;
                     case "lblWeb":  // 14
                       MainControl.Text = (pDs.Tables[pTI].Rows[0]["addr_web"] == DBNull.Value ? "" : pDs.Tables[pTI].Rows[0]["addr_web"].ToString());
+                      break;
+                    case "lblNTN":  // 14
+                      MainControl.Text = (pDs.Tables[pTI].Rows[0]["addr_NTN"] == DBNull.Value ? "" : pDs.Tables[pTI].Rows[0]["addr_NTN"].ToString());
+                      break;
+                    case "lblSTRN":  // 14
+                      MainControl.Text = (pDs.Tables[pTI].Rows[0]["addr_STRN"] == DBNull.Value ? "" : pDs.Tables[pTI].Rows[0]["addr_STRN"].ToString());
                       break;
                     case "lblAc_id":  // 15 Additional
                       MainControl.Text = (pDs.Tables[pTI].Rows[0]["ac_id"] == DBNull.Value ? "" : pDs.Tables[pTI].Rows[0]["ac_id"].ToString())

@@ -191,6 +191,8 @@ namespace TaxSolution
         textFax.MaxLength = 15;
         textEmail.MaxLength = 50;
         textWeb.MaxLength = 50;
+        textNTN.MaxLength = 50;
+        textSTRN.MaxLength = 50;
         // Tab Status
         textAddressRef.MaxLength = 50;
         textAddressRemarks.MaxLength = 50;
@@ -224,6 +226,8 @@ namespace TaxSolution
         toolTipAddress.SetToolTip(textFax, "Fax Number (Including Country, Area Code): Optional, Max Length: " + textFax.MaxLength.ToString() + " Alphanumeric Characters.");
         toolTipAddress.SetToolTip(textEmail, "Email Address: Optional, Max Length: " + textEmail.MaxLength.ToString() + " Alphanumeric Characters.");
         toolTipAddress.SetToolTip(textWeb, "Web Address /URL (Multiple allowed seperated by comma): Optional, Max Length: " + textWeb.MaxLength.ToString() + " Alphanumeric Characters.");
+        toolTipAddress.SetToolTip(textNTN, "Nation Tax #: Optional, Max Length: " + textNTN.MaxLength.ToString() + " Alphanumeric Characters.");
+        toolTipAddress.SetToolTip(textSTRN, "Sales Tax Registration # : Optional, Max Length: " + textSTRN.MaxLength.ToString() + " Alphanumeric Characters.");
         // Status Tab
         toolTipAddress.SetToolTip(tabPage3, "Current Status info: Default, Active, Disabled etc.");
         toolTipAddress.SetToolTip(textAddressRef, "A prominent Place/Person/Building, to help, to reach the address : Optional, Max Length: " + textAddressRef.MaxLength.ToString() + " Alphanumeric Characters.");
@@ -387,6 +391,9 @@ namespace TaxSolution
                 textFax.Text = dRow["addr_fax"].ToString();
                 textEmail.Text = dRow["addr_email"].ToString();
                 textWeb.Text = dRow["addr_web"].ToString();
+                textNTN.Text = dRow["addr_NTN"].ToString();
+                textSTRN.Text = dRow["addr_STRN"].ToString();
+
                 // Tab Status
                 textAddressRef.Text = dRow["addr_ref"].ToString();
                 textAddressRemarks.Text = dRow["addr_remarks"].ToString();
@@ -449,32 +456,35 @@ namespace TaxSolution
     }
     private void ClearThisForm()
     {
-      // Tab Address:
-      textContactPerson.Text = string.Empty;
-      textAddress1.Text = string.Empty;
-      textAddress2.Text = string.Empty;
-      cboSalutation.SelectedIndex = fcboDefaultValueSalute;
-      cboCountry.SelectedIndex = fcboDefaultValueCountry; 
-      //cboCity.SelectedIndex = 0;  
-      textZip.Text = string.Empty;
-      // Tab Contact:
-      textPhone.Text = string.Empty;
-      textExt.Text = string.Empty;
-      textMobile.Text = string.Empty;
-      textFax.Text = string.Empty;
-      textEmail.Text = string.Empty;
-      textWeb.Text = string.Empty;
-      // Tab Status
-      textAddressRef.Text = string.Empty;
-      textAddressRemarks.Text = string.Empty;
-      mtextOrdering.Text = string.Empty;
-      chkIsDefault.Checked = false;
-      chkIsDisabled.Checked = false;
-      // Buttons
-      //btn_Save.Enabled = false;
-      btn_Delete.Enabled = false;
-      mtextID.Enabled = true;
-      mtextID.Focus();
+        // Tab Address:
+        textContactPerson.Text = string.Empty;
+        textAddress1.Text = string.Empty;
+        textAddress2.Text = string.Empty;
+        cboSalutation.SelectedIndex = fcboDefaultValueSalute;
+        cboCountry.SelectedIndex = fcboDefaultValueCountry; 
+        //cboCity.SelectedIndex = 0;  
+        textZip.Text = string.Empty;
+        // Tab Contact:
+        textPhone.Text = string.Empty;
+        textExt.Text = string.Empty;
+        textMobile.Text = string.Empty;
+        textFax.Text = string.Empty;
+        textEmail.Text = string.Empty;
+        textWeb.Text = string.Empty;
+        textNTN.Text = string.Empty;
+        textSTRN.Text = string.Empty;
+        
+        // Tab Status
+        textAddressRef.Text = string.Empty;
+        textAddressRemarks.Text = string.Empty;
+        mtextOrdering.Text = string.Empty;
+        chkIsDefault.Checked = false;
+        chkIsDisabled.Checked = false;
+        // Buttons
+        //btn_Save.Enabled = false;
+        btn_Delete.Enabled = false;
+        mtextID.Enabled = true;
+        mtextID.Focus();
     }
 
     private void btn_Save_Click(object sender, EventArgs e)
@@ -509,37 +519,37 @@ namespace TaxSolution
     // Validity of Data
     private bool FormValidation()
     {
-      bool IsValid = true;
-      fAlreadyExists = false;
-      ErrrMsg = string.Empty;
+        bool IsValid = true;
+        fAlreadyExists = false;
+        ErrrMsg = string.Empty;
 
-      // check combo box
-      if (cboAddrType.SelectedIndex == -1)
-      {
-          ErrrMsg = StrF01.BuildErrMsg(ErrrMsg, "Combo Box Address Type is Empty .... ");
-          IsValid = false;
-      }
-      if (cboSalutation.SelectedIndex == -1)
-      {
-          ErrrMsg = StrF01.BuildErrMsg(ErrrMsg, "Combo Box Salutation is Empty .... ");
-          IsValid = false;
-      }
+        // check combo box
+        if (cboAddrType.SelectedIndex == -1)
+        {
+            ErrrMsg = StrF01.BuildErrMsg(ErrrMsg, "Combo Box Address Type is Empty .... ");
+            IsValid = false;
+        }
+        if (cboSalutation.SelectedIndex == -1)
+        {
+            ErrrMsg = StrF01.BuildErrMsg(ErrrMsg, "Combo Box Salutation is Empty .... ");
+            IsValid = false;
+        }
 
-      if (cboCountry.SelectedIndex == -1)
-      {
-          ErrrMsg = StrF01.BuildErrMsg(ErrrMsg, "Combo Box Country is Empty .... ");
-          IsValid = false;
-      }
-      if (cboState.SelectedIndex == -1)
-      {
-          ErrrMsg = StrF01.BuildErrMsg(ErrrMsg, "Combo Box Province/State is Empty .... ");
-          IsValid = false;
-      }
-      if (cboCity.SelectedIndex == -1)
-      {
-          ErrrMsg = StrF01.BuildErrMsg(ErrrMsg, "Combo Box City is Empty .... ");
-          IsValid = false;
-      }
+        if (cboCountry.SelectedIndex == -1)
+        {
+            ErrrMsg = StrF01.BuildErrMsg(ErrrMsg, "Combo Box Country is Empty .... ");
+            IsValid = false;
+        }
+        if (cboState.SelectedIndex == -1)
+        {
+            ErrrMsg = StrF01.BuildErrMsg(ErrrMsg, "Combo Box Province/State is Empty .... ");
+            IsValid = false;
+        }
+        if (cboCity.SelectedIndex == -1)
+        {
+            ErrrMsg = StrF01.BuildErrMsg(ErrrMsg, "Combo Box City is Empty .... ");
+            IsValid = false;
+        }
 
       //for (int i = 0; i < fValRArr.Length; i++)
       //{
@@ -734,6 +744,10 @@ namespace TaxSolution
               tSQL += ", addr_email";
               // 21
               tSQL += ", addr_web";
+              // 21
+              tSQL += ", addr_NTN";
+              // 21
+              tSQL += ", addr_STRN";
               // 22
               tSQL += ", addr_ref";
               // 23
@@ -798,6 +812,10 @@ namespace TaxSolution
               tSQL += ", '" + StrF01.EnEpos(textEmail.Text.ToString().Trim()) + "'";
               // 21
               tSQL += ", '" + StrF01.EnEpos(textWeb.Text.ToString().Trim()) + "'";
+              // 21
+              tSQL += ", '" + StrF01.EnEpos(textNTN.Text.ToString().Trim()) + "'";
+              // 21
+              tSQL += ", '" + StrF01.EnEpos(textSTRN.Text.ToString().Trim()) + "'";
               // 22
               tSQL += ", '" + StrF01.EnEpos(textAddressRef.Text.ToString().Trim()) + "'";
               // 23
@@ -882,6 +900,10 @@ namespace TaxSolution
               tSQL += ", addr_email = '" + StrF01.EnEpos(textEmail.Text.ToString().Trim()) + "'";
               // 21
               tSQL += ", addr_web = '" + StrF01.EnEpos(textWeb.Text.ToString().Trim()) + "'";
+              // 21
+              tSQL += ", addr_NTN = '" + StrF01.EnEpos(textNTN.Text.ToString().Trim()) + "'";
+              // 21
+              tSQL += ", addr_STRN = '" + StrF01.EnEpos(textSTRN.Text.ToString().Trim()) + "'";
               // 22
               tSQL += ", addr_ref = '" + StrF01.EnEpos(textAddressRef.Text.ToString().Trim()) + "'";
               // 23
