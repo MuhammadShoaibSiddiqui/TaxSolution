@@ -132,10 +132,14 @@ namespace TaxSolution
 
         private void goodsReceiveNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //frmGRN frm = new frmGRN();
-            frmGRNCr frm = new frmGRNCr();
+            ////frmGRN frm = new frmGRN();
+            //frmGRNCr frm = new frmGRNCr();
+            //frm.MdiParent = this;
+            ////frm.BringToFront = true;
+            //frm.Show();
+
+            Temp.frmGRNCr frm = new Temp.frmGRNCr();
             frm.MdiParent = this;
-            //frm.BringToFront = true;
             frm.Show();
 
         }

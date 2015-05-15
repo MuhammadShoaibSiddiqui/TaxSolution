@@ -28,7 +28,7 @@ using TaxSolution.PrintViewer;
 //lblAcTitle.Text = lAcTitle[0];
 //lblAcTitle.Tag = lAcTitle[1];
 
-namespace TaxSolution
+namespace TaxSolution.Temp
 {
     enum GColGrn
     {
@@ -156,6 +156,9 @@ namespace TaxSolution
         string fLookUpTitleWidth = string.Empty;
         string isLoading = "Y";
 
+        string fColFormat = string.Empty;                 // Column Format  
+        string fFieldList = string.Empty;
+
         public frmGRNCr()
         {
             InitializeComponent(); 
@@ -239,6 +242,7 @@ namespace TaxSolution
 
             clsFillCombo.FillCombo(cboGodown, clsGVar.ConString1, "cmn_Godown" + "," + "Godown_ID" + "," + "False", lSQL);
             fcboDefaultValue = Convert.ToInt16(cboGodown.SelectedValue);
+            
         }
 
         private void LoadInitialControls()
@@ -1193,7 +1197,7 @@ namespace TaxSolution
                     lSQL += ", BiltyDate";                                        // 7-
                     lSQL += ", VehicleNo";                                        // 7-
                     lSQL += ", DriverName";                                        // 7-
-                    lSQL += ", TransportID";                                        // 7-
+                   // lSQL += ", TransportID";                                        // 7-
                     lSQL += ", isShowRpt";                                        // 7-
                     lSQL += ", isCalcRpt";                                        // 7-
 
@@ -1219,7 +1223,7 @@ namespace TaxSolution
                     lSQL += ",'" + StrF01.EnEpos(txtBiltyDate.Text.ToString()) + "'"; // 8-
                     lSQL += ",'" + StrF01.EnEpos(txtVehicleNo.Text.ToString()) + "'"; // 8-
                     lSQL += ",'" + StrF01.EnEpos(txtDriverName.Text.ToString()) + "'"; // 8-
-                    lSQL += ", " + cboTransport.SelectedValue.ToString();                              // 9-
+                   // lSQL += ", " + cboTransport.SelectedValue.ToString();                              // 9-
                     lSQL += ", " + (chk_ShowRpt.Checked == true ? 1 : 0);                              // 9-
                     lSQL += ", " + (chk_CalcRpt.Checked == true ? 1 : 0);                              // 9-
 
@@ -1307,7 +1311,10 @@ namespace TaxSolution
 
                 if (grdVoucher.Rows.Count > 0)
                 {
-                    Prepare_GL_Trans();
+                    /* Commented by Usama Naveed
+                    //Prepare_GL_Trans();
+                    */
+
                     // 1st GL Transaction
                     //lSQL = "insert into gl_trandtl ( ";
                     //// Middle Pottion
@@ -1386,80 +1393,65 @@ namespace TaxSolution
         private bool PrepareDocDetail()
         {
             bool rtnValue = true;
+            string lSQL = "";
             try
             {
-
-                // Grid Voucher
-                if (grdVoucher.Rows.Count > 0)
+                for (int dGVRow = 0; dGVRow < grdVoucher.Rows.Count; dGVRow++)
                 {
-                    // Prepare Detail Doc Query List
-                    string tTableName = "Inv_trandtl";
-                    string tFieldName = "";
-                    string tColType = "";
-                    //
-                    tColType += "  N0";     //ItemID = 0,
-                    tColType += ", TB";     //ItemName = 1,
-                    tColType += ", N0";     //UOMID = 2,
-                    tColType += ", SKP";    //UOMName = 3,
-                   // tColType += ", N0";     //GodownID = 4,
-                   // tColType += ", SKP";    //GodownName = 5,
-                    tColType += ", N2";     //Qty = 6,
-                    tColType += ", N3";     //Rate = 7,
-                    tColType += ", N0";     //Value = 8,
-                    tColType += ", N2";     //DiscountPercentage = 9,
-                    tColType += ", SKP";    //DiscountValue = 10,
-                    tColType += ", N2";     //AfterDiscount = 11,
-                    tColType += ", N2";     //SalesTaxPercentage = 12,
-                    tColType += ", N2";     //SalesTaxAmount = 13,
-                    tColType += ", N2";     //FEDPercentage = 14,
-                    tColType += ", N2";     //FEDValue = 15,
-                    tColType += ", N2";     //NetAmount = 16,
-                    //
-
-                    tFieldName += "  ItemID";       //ItemID = 0,
-                    tFieldName += ", Narration";    //ItemName = 1,
-                    tFieldName += ", UOMID";        //UOMID = 2,
-                    tFieldName += ", '' as skp2";   //UOMName = 3,
-                    //tFieldName += ", GodownID";      //GodownID = 4,
-                    //tFieldName += ", '' as skp3";    //GodownName = 5,
-                    tFieldName += ", Qty_In";       //Qty = 6,
-                    tFieldName += ", Rate";         //Rate = 7,
-                    tFieldName += ", Bundle";       //Value = 8,
-                    tFieldName += ", MeshTotal";    //DiscountPercentage = 9,
-                    tFieldName += ", '' as skp4";   //DiscountValue = 10,
-                    tFieldName += ", isBundle";     //AfterDiscount = 11,
-                    tFieldName += ", isMesh";       //SalesTaxPercentage = 12,
-                    tFieldName += ", Length";       //SalesTaxAmount = 13,
-                    tFieldName += ", LenDec";       //FEDPercentage = 14,
-                    tFieldName += ", Width";        //FEDValue = 15,
-                    tFieldName += ", WidDec";       //NetAmount = 16,
-                    // 
-                    string tAddFieldName = "Doc_vt_id, Doc_fiscal_ID, Doc_ID";
-                    string tAddValue = fDocTypeID.ToString() + ", " + fDocFiscal.ToString() + ", " + fDocID.ToString();
-
-                    //string tDeleteQry = "delete from " + tTableName + " where "
-                    //    + "Doc_vt_id=" + fDocTypeID.ToString()
-                    //    + ", Doc_fiscal_ID=" + fDocFiscal.ToString()
-                    //    + ", Doc_ID=" + fDocID.ToString();
-                    //if (fNewID)
-                    //{
-                    //    tAddValue += mtextID.Text.ToString();
-                    //    tDeleteQry += mtextID.Text.ToString();
-                    //    tDeleteQry += " and " + clsGVar.LGCY;  // ?
-                    //}
-                    //else
-                    //{
-                    //    tAddValue += cboGLVoucherType.SelectedValue.ToString();
-                    //    tDeleteQry += cboGLVoucherType.SelectedValue.ToString();
-                    //    tDeleteQry += " and " + clsGVar.LGCY;
-                    //}
-                    //fManySQL.Add(tDeleteQry);
-                    //
-                    if (clsDbManager.PrepareGridSQL(grdVoucher, tTableName, tFieldName, tColType, fManySQL, tAddFieldName, tAddValue) != "OK")
+                    if (grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value == null)
                     {
-                        return false;
+                        if (dGVRow == fLastRow)
+                        {
+                            continue;
+                        }
                     }
-                }
+                    else
+                    {
+                        if ((grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString()).Trim(' ', '-') == "")
+                        {
+                            //lBlank = true;
+                            if (dGVRow == fLastRow)
+                            {
+                                continue;
+                            }
+                        }
+                    }
+
+                    //ItemID = 0,
+                    //ItemName = 1,
+                    //UOMID = 2,
+                    //UOMName = 3,
+                    //GodownID = 4,
+                    //GodownName = 5,
+                    //Qty = 6,
+                    //Rate = 7,
+                    //Value = 8,
+                    //DiscountPercentage = 9,
+                    //DiscountValue = 10,
+                    //AfterDiscount = 11,
+                    //SalesTaxPercentage = 12,
+                    //SalesTaxAmount = 13,
+                    //FEDPercentage = 14,
+                    //FEDValue = 15,
+                    //NetAmount = 16,                                                                                                           
+
+                    lSQL = "INSERT INTO Inv_trandtl ( doc_id ";
+                    lSQL += ",doc_vt_id, ItemID, UOMID, Qty_In, Rate, DiscPercent, DiscAmount, STRate, FSTRate)";
+                    lSQL += " VALUES (";
+                    lSQL += "" + fDocID + "";
+                    lSQL += "," + fDocTypeID;
+                   // lSQL += ", '" + txtGateInward.Text.ToString() + "'";
+                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString() + "";
+                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.UOMID].Value.ToString() + "";
+                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Qty].Value.ToString() + "";
+                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString() + "";
+                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.DiscountPercentage].Value.ToString() + "";
+                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.DiscountValue].Value.ToString() + "";
+                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.SalesTaxPercentage].Value.ToString() + "";
+                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.FEDPercentage].Value.ToString() + "";
+                    lSQL += ")";
+                    fManySQL.Add(lSQL);
+                } // End For loopo
                 return rtnValue;
             }
             catch (Exception ex)
@@ -1467,200 +1459,6 @@ namespace TaxSolution
                 MessageBox.Show("Save Detail Doc: " + ex.Message, this.Text.ToString());
                 return false;
             }
-            
-            //-------------************************
-            //bool rtnValue = true;
-            //string lSQL = "";
-            //DataSet ds = new DataSet();
-            //DataRow dRow;
-            //string strItemDes = string.Empty;
-            ////Int64 lAcID = 0;
-            //try
-            //{
-            //    //
-            //    for (int dGVRow = 0; dGVRow < grdVoucher.Rows.Count; dGVRow++)
-            //    {
-            //        //frmGroupRights.dictGrpForms.Add(Convert.ToInt32(dGVSelectedForms.Rows[dGVRow].Cells[0].Value.ToString()),
-            //        //    dGVSelectedForms.Rows[dGVRow].Cells[1].Value.ToString());
-            //        // Prepare Save Data to Db Table
-            //        //
-            //        if (grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value == null)
-            //        {
-            //            if (dGVRow == fLastRow)
-            //            {
-            //                continue;
-            //            }
-            //        }
-            //        else
-            //        {
-            //            if ((grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString()).Trim(' ', '-') == "")
-            //            {
-            //                //lBlank = true;
-            //                if (dGVRow == fLastRow)
-            //                {
-            //                    continue;
-            //                }
-            //            }
-            //        }
-
-            //        lSQL= "	SELECT gg.Group_st + i.goodsitem_st AS Item_ST ";
-            //        lSQL += " FROM gds_item i INNER JOIN gds_Group gg ON i.Group_id=gg.Group_id ";
-            //        lSQL += " WHERE i.goodsitem_id=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString();
-            //        ds = clsDbManager.GetData_Set(lSQL, "Items");
-            //        if (ds.Tables[0].Rows.Count > 0)
-            //        {
-            //            dRow = ds.Tables[0].Rows[0];
-            //            strItemDes = dRow.ItemArray.GetValue(0).ToString();
-            //        }
-
-            //        if (grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isMesh].Value != null)
-            //        {
-            //            if (clsDbManager.ConvBit(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isBundle].Value.ToString()) == "0"
-            //                || clsDbManager.ConvBit(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isMesh].Value.ToString()) == "0")
-            //            {
-            //                strItemDes += " B=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Bundle].Value.ToString()
-            //                    + " Q=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Qty].Value.ToString()
-            //                    + " @" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString() ;
-            //            }
-
-            //            if (clsDbManager.ConvBit(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isBundle].Value.ToString()) == "1")
-            //            {
-            //                strItemDes += " B=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Bundle].Value.ToString()
-            //                    + " @" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString();
-            //            }
-
-            //            if (clsDbManager.ConvBit(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isMesh].Value.ToString()) == "0")
-            //            {
-            //                strItemDes += " B=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Bundle].Value.ToString()
-            //                    + " L=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Length].Value.ToString()
-            //                    + " W=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Width].Value.ToString()
-            //                    + " Q=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Qty].Value.ToString()
-            //                    + " @" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString();
-            //            }
-
-            //        }
-            //        //lSQLValues += ConvBit("False");
-            //        //}
-            //        //else
-            //        //{
-            //        //lSQLValues += ConvBit(pdGv.Rows[i].Cells[j].Value.ToString());
-            //        //}
-            //        //grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isMesh].Value.ToString()
-
-            //        // 1st GL Transaction
-            //        lSQL = "insert into gl_trandtl ( ";
-            //        // Middle Pottion
-            //        lSQL += " doc_vt_id ";                                                               // Form 1- 
-            //        lSQL += ", doc_fiscal_id ";                                                                // 4- Doc Fiscal 
-            //        lSQL += ", doc_id ";                                                                    // Form 2- 
-            //        lSQL += ", ac_id ";                                                                     // 3-
-            //        lSQL += ", NARRATION ";                                                                 // 8-
-            //        lSQL += ", DEBIT ";                                                                     // 9-    
-            //        lSQL += ", CREDIT ";                                                                    // 10-
-            //        //
-            //        lSQL += ", SERIAL_ORDER ";                                                              // 1-
-            //        lSQL += ", isChecked ";                                                                // 7-
-            //        //
-            //        // Bottom Portion
-            //        //
-            //        lSQL += ") values (";
-            //        lSQL += " " + fDocTypeID.ToString();                      // 3- Document Type, JV, Cash Receipt, Cash Payment, Bank Receipt, Bank Payment etc
-            //        lSQL += ", " + fDocFiscal.ToString();                      // 4- Document Fiscal
-            //        lSQL += ", " + fDocID.ToString();                          // 2- Form 1- Voucher_id
-            //        //
-            //        lSQL += ", " + msk_AccountID.Tag; //grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.acid].Value.ToString();            // 2- Serial Order replaced with SNo. 
-            //        //                                                                                       // 5- Ac Title NA
-            //        lSQL += ", '" + strItemDes + "'";      // 8- Narration 
-            //        lSQL += ", " + clsDbManager.ConvDecimal(lblTotalAmount.Text);           // 9- Debit. 
-            //        lSQL += ", " + 0;           // 10- Credit
-            //        lSQL += ", " + 0;          // 11- Combo 1 
-            //        lSQL += ", 0"; //is Checked
-            //        lSQL += ")";
-
-            //        fManySQL.Add(lSQL);
-            //        // string aaa1 = grdVoucher.Rows[dGVRow].Cells[(int)GCol.acstrid].Value.ToString();
-            //        // Getting ac_id with DocStrID 
-            //        //lAcID = coa.GetNumAcID(
-            //        //    "gl_ac",
-            //        //    "ac_strid",
-            //        //    "ac_id",
-            //        //    grdVoucher.Rows[dGVRow].Cells[(int)GCol.acstrid].Value.ToString(),
-            //        //    ""
-            //        //    );
-            //        // Top Portion
-            //        lSQL = "insert into gl_trandtl ( ";
-            //        // Middle Pottion
-            //        lSQL += " doc_vt_id ";                                                               // Form 1- 
-            //        lSQL += ", doc_fiscal_id ";                                                                // 4- Doc Fiscal 
-            //        lSQL += ", doc_id ";                                                                    // Form 2- 
-            //        lSQL += ", Itemid ";                                                                     // 3-
-            //        lSQL += ", NARRATION ";                                                                 // 8-
-
-            //        lSQL += ", UOMid ";                                                                     // 3-
-            //        lSQL += ", Godownid ";
-
-            //        lSQL += ", Qty_In ";                                                                     // 9-    
-            //        lSQL += ", Qty_Out ";                                                                    // 10-
-
-            //        lSQL += ", Rate ";
-            //        lSQL += ", Bundle ";
-            //        lSQL += ", MeshTotal ";
-
-            //        lSQL += ", isBundle ";
-            //        lSQL += ", isMesh ";
-
-            //        lSQL += ", Length ";
-            //        lSQL += ", LenDec ";
-
-            //        lSQL += ", Width ";
-            //        lSQL += ", WidDec ";
-            //        //
-            //        lSQL += ", SERIAL_ORDER ";                                                              // 1-
-            //        lSQL += ", isChecked ";                                                                // 7-
-            //        //
-            //        // Bottom Portion
-            //        //
-            //        lSQL += ") values (";
-            //        lSQL += " " + fDocTypeID.ToString();                      // 3- Document Type, JV, Cash Receipt, Cash Payment, Bank Receipt, Bank Payment etc
-            //        lSQL += ", " + fDocFiscal.ToString();                                               // 4- Document Fiscal
-            //        lSQL += ", " + fDocID.ToString();                                                        // 2- Form 1- Voucher_id
-            //        //
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString();            // 2- Serial Order replaced with SNo. 
-            //        //                                                                                       // 5- Ac Title NA
-            //        lSQL += ", '" + StrF01.EnEpos(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemName].Value.ToString()) + "'";      // 8- Narration 
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.UOMID].Value.ToString();            // 2- Serial Order replaced with SNo. 
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.GodownID].Value.ToString();            // 2- Serial Order replaced with SNo. 
-
-            //        lSQL += ", 0"; //+ grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Qty].Value.ToString();           // 9- Debit. 
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Qty].Value.ToString();           // 9- Debit. 
-
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString();          // 10- Debit. 
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Bundle].Value.ToString();          // 11- Combo 1 
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.MeshTotal].Value.ToString();          // 11- Combo 1 
-
-            //        lSQL += ", " + clsDbManager.ConvBit(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isBundle]);           // 11- Combo 1 
-            //        lSQL += ", " + clsDbManager.ConvBit(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isMesh]);           // 11- Combo 1 
-
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Length].Value.ToString();          // 11- Combo 1 
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.LenDec].Value.ToString();          // 11- Combo 1 
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Width].Value.ToString();          // 11- Combo 1 
-            //        lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.WidDec].Value.ToString();          // 11- Combo 1 
-            //        lSQL += ", " + dGVRow.ToString(); //is Checked
-            //        lSQL += ", 0"; //is Checked
-            //        lSQL += ")";
-
-            //        //
-            //        fManySQL.Add(lSQL);
-            //    } // End For loopo
-            //    return rtnValue;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Save Detail Doc: " + ex.Message, this.Text.ToString());
-            //    return false;
-            //}
-            ////-------------************************
-
         }
 
         private bool Prepare_GL_Trans()
@@ -2309,10 +2107,16 @@ namespace TaxSolution
                     {
                         chk_CalcRpt.Checked = false;
                     }
+
+                    /*
                     int tcboTransportID = 0;
                     tcboTransportID = Convert.ToInt16(ds.Tables[0].Rows[0]["TransportID"].ToString());
                     cboTransport.SelectedIndex = clsSetCombo.Set_ComboBox(cboTransport, tcboTransportID);
+                    */
+                     
                     fEditMod = true;
+                    
+
 
                     //tFirstID = Convert.ToInt16(dRow.ItemArray.GetValue(3).ToString());
                     //cboFirstID.SelectedIndex = ClassSetCombo.Set_ComboBox(cboFirstID, tFirstID);
@@ -2472,92 +2276,85 @@ namespace TaxSolution
             btn_View.Enabled = pEnableDisable;
         }
 
+        //ItemID = 0,
+        //ItemName = 1,
+        //UOMID = 2,
+        //UOMName = 3,
+        //GodownID = 4,
+        //GodownName = 5,
+        //Qty = 6,
+        //Rate = 7,
+        //Value = 8,
+        //DiscountPercentage = 9,
+        //DiscountValue = 10,
+        //AfterDiscount = 11,
+        //SalesTaxPercentage = 12,
+        //SalesTaxAmount = 13,
+        //FEDPercentage = 14,
+        //FEDValue = 15,
+        //NetAmount = 16,
+
         private void LoadGridData() 
         {
           string lSQL = "";
-          lSQL = "SELECT ";
-          //lSQL += "  'False' as tstatus";                                           // 0a- Status for check box : now not required
-          lSQL += "  td.ItemID";                               // 0-
-          lSQL += ", i.goodsitem_title";                                         // 1-
-          lSQL += ", td.UOMID";                                              // 2-
-          lSQL += ", u.goodsuom_title";                                              // 3-
-          lSQL += ", td.GodownID";                                            // 4-
-          lSQL += ", g.Godown_title";                                            // 5-
-          lSQL += ", td.Qty_In";                                               // 6-
-          lSQL += ", td.Rate";                                          // 7-
-          lSQL += ", td.Bundle";                                         // 8-
-          lSQL += ", CASE WHEN td.isMesh=1 THEN td.Bundle* ((td.Width + (td.WidDec*0.0833)) * (td.Length + (td.LenDec*0.0833))) ELSE 0 END as MeshTotal";
-            //td.Bundle* ((td.Width + (td.WidDec*0.0833)) * (td.Length + (td.LenDec*0.0833))) as MeshTotal";                                        // 9-
-          //lSQL += ", isNull(td.Rate,0)*isNull(td.Qty_Out,0) as Amount";       // 10-
-          lSQL += ", CASE WHEN td.isBundle=1 THEN isNull(td.Rate,0)*isNull(td.Bundle,0)";
-	      //lSQL += " WHEN td.isMesh=1 THEN isNull(td.Rate,0)*isNull(td.MeshTotal,0)";
-          lSQL += " WHEN td.isMesh=1 THEN isNull(td.Rate,0)*td.Bundle* ((td.Width + (td.WidDec*0.0833)) * (td.Length + (td.LenDec*0.0833)))";
-          lSQL += " ELSE isNull(td.Rate,0)*isNull(td.Qty_Out,0) END as Amount";
+          lSQL += " select i.ItemID AS ItemCode, item.goodsitem_title AS ItemName, u.goodsuom_title AS UOMName, i.UOMID, i.Qty_In AS Qty, i.Rate, ";
+          lSQL += " (i.Qty_In * Rate) AS Value,  i.DiscPercent AS DiscountPercentage, "; 
+          lSQL += " ((i.DiscPercent/100)* Rate) AS DiscountValue, "; 
+          lSQL += " i.DiscAmount AS AfterDiscount, i.STRate AS SalesTaxPercentage, ((i.STRate/100)*DiscAmount) AS SalesTaxAmount, ";
+          lSQL += " i.FSTRate AS FEDPercentage, ((i.FSTRate/100)*DiscAmount) AS FEDValue, ";
+          lSQL += " (i.DiscAmount + ((i.STRate/100)*DiscAmount) + ((i.FSTRate/100)*DiscAmount)) AS NetAmount  ";
+          lSQL += " from inv_tran it INNER JOIN inv_trandtl i ON i.doc_id = it.doc_id  INNER JOIN gds_uom u ON i.UOMID = u.goodsuom_id ";
+          lSQL += " INNER JOIN gds_item item ON i.ItemID = item.goodsitem_id ";
+          lSQL += " WHERE it.doc_id = " + lblDocID.Text.ToString();
 
-          lSQL += ", td.isBundle";                                            // 11-    
-          lSQL += ", td.isMesh";                                               // 12-
-          lSQL += ", td.Length";                                     // 13-
-          lSQL += ", td.LenDec";           //14
-          lSQL += ", td.Width";            //15
-          lSQL += ", td.WidDec";           //16
-          //
-          lSQL += " FROM inv_tran t INNER JOIN inv_trandtl td  ON t.doc_vt_id=td.doc_vt_id ";
-          lSQL += " AND t.doc_fiscal_id=td.doc_fiscal_id AND t.doc_id=td.doc_id";
-          lSQL += " INNER JOIN gds_item i ON i.goodsitem_id=td.ItemID ";
-          lSQL += " INNER JOIN gds_uom u ON td.UOMID=u.goodsuom_id ";
-          lSQL += " INNER JOIN cmn_Godown g ON td.GodownID=g.Godown_id ";
-          lSQL += " where ";
-          lSQL += DocWhere("");
-          lSQL += " ORDER BY td.SERIAL_No ";
-          //
-
-          string tFieldList = "";              
-          tFieldList  = "  ItemID";            //0
-          tFieldList += ", goodsitem_title";   //1
-          tFieldList += ", UOMID ";            //2
-          tFieldList += ", goodsuom_title";    //3
-         // tFieldList += ", GodownID";          //4
-        //  tFieldList += ", Godown_title";      //5
-          tFieldList += ", Qty_In";           //6
-          tFieldList += ", Rate";              //7
-          tFieldList += ", Bundle";            //8
-          tFieldList += ", MeshTotal";         //9
-          tFieldList += ", Amount";            //10
-          tFieldList += ", isBundle";          //11
-          tFieldList += ", isMesh";            //12
-          tFieldList += ", Length";            //13
-          tFieldList += ", LenDec";            //14
-          tFieldList += ", Width";             //15
-          tFieldList += ", WidDec";            //16
+          string tFieldList = "";
+          tFieldList = "  ItemID";            //ItemID = 0,
+          tFieldList += ", ItemName";  //ItemName = 1,
+          tFieldList += ", UOMID ";           //UOMID = 2,
+          tFieldList += ", UOMName";   //UOMName = 3,
+          // tFieldList += ", GodownID";      //GodownID = 4,
+          //  tFieldList += ", Godown_title"; //GodownName = 5,
+          tFieldList += ", Qty";           //Qty = 6,
+          tFieldList += ", Rate";             //Rate = 7,
+          tFieldList += ", Value";           //Value = 8,
+          tFieldList += ", DiscountPercentage";        //DiscountPercentage = 9,
+          tFieldList += ", DiscountValue";           //DiscountValue = 10,
+          tFieldList += ", AfterDiscount";         //AfterDiscount = 11,
+          tFieldList += ", SalesTaxPercentage";           //SalesTaxPercentage = 12,
+          tFieldList += ", SalesTaxAmount";           //SalesTaxAmount = 13,
+          tFieldList += ", FEDPercentage";           //FEDPercentage = 14,
+          tFieldList += ", FEDValue";            //FEDValue = 15,
+          tFieldList += ", NetAmount";           //NetAmount = 16,
           //tFieldList += ", ''";              
           // 
-          string tColFormat = "TB";
-          //tColFormat += ",TB";                                                  // 0-  
-          //tColFormat += ",SN";                                                    // 1-    
-          tColFormat  =  "TB";                                                    // 0-    sn
-          tColFormat += ",TB";                                                    // 1-    sn
-          tColFormat += ",TB";                                                    // 2-
-          tColFormat += ",TB";                                                    // 3-
-          //tColFormat += ",TB";                                                    // 4-
-          //tColFormat += ",TB";                                                    // 5-
-          tColFormat += ",N2";                                                    // 6-    
-          tColFormat += ",N2";                                                    // 7-
-          tColFormat += ",N2";                                                    // 8-
-          tColFormat += ",N2";                                                    // 9-
-         // tColFormat += ",N2";                                                    // 10-
-         // tColFormat += ",N2";                                                    // 11-
-          tColFormat += ",N2";                                                    // 12-
-          tColFormat += ",N2";                                                    // 13-
-          tColFormat += ",N2";                                                    // 14-
-          tColFormat += ",N2";                                                    // 15-
-          tColFormat += ",N2";                                                    // 16-
-          //tColFormat += ",TB";                                                    
+          string tColFormat = "TB";   //ItemID = 0,
+          //tColFormat += ",TB";      //ItemName = 1,
+          //tColFormat += ",SN";      //UOMID = 2,
+          tColFormat = "TB";          //UOMName = 3,
+          tColFormat += ",N2";        //GodownID = 4,
+          tColFormat += ",TB";        //GodownName = 5,
+          tColFormat += ",N2";        //Qty = 6,
+          //tColFormat += ",TB";      //Rate = 7,
+          //tColFormat += ",TB";      //Value = 8,
+          tColFormat += ",N2";        //DiscountPercentage = 9,
+          tColFormat += ",N2";        //DiscountValue = 10,
+          tColFormat += ",N2";        //AfterDiscount = 11,
+          tColFormat += ",N2";        //SalesTaxPercentage = 12,
+          // tColFormat += ",N2";     //SalesTaxAmount = 13,
+          // tColFormat += ",N2";     //FEDPercentage = 14,
+          tColFormat += ",N2";        //FEDValue = 15,
+          tColFormat += ",N2";        //NetAmount = 16,
+          tColFormat += ",N2";
+          tColFormat += ",N2";
+          tColFormat += ",N2";
+          //tColFormat += ",TB";      
+
 
           clsDbManager.FillDataGrid(
-          grdVoucher,
-          lSQL,
-          tFieldList,
-          tColFormat);
+              grdVoucher,
+              lSQL,
+              fFieldList,
+              fColFormat);
 
         }
         // Prepare Document Where
