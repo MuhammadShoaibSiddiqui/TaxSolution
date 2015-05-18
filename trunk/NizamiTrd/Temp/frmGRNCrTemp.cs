@@ -30,37 +30,55 @@ using TaxSolution.PrintViewer;
 
 namespace TaxSolution.Temp
 {
-    enum GColGrn
+    enum GColGrn1
     {
         ItemID = 0,
         ItemName = 1,
-        UOMID = 2,
-        UOMName = 3,
-        GodownID = 4,
-        GodownName = 5,
-        Qty = 6,
-        Rate = 7,
-        Value = 8,
-        DiscountPercentage = 9,
-        DiscountValue = 10,
-        AfterDiscount = 11,
-        SalesTaxPercentage = 12,
-        SalesTaxAmount = 13,
-        FEDPercentage = 14,
-        FEDValue = 15,
-        NetAmount = 16,
-        // UnUsed
-        isMesh = 17,
-        Length = 18,
-        Bundle = 19,
-        MeshTotal = 20,
-        Width = 21,
-        isBundle = 22,
-        Amount = 23
+        UOMName = 2,
+        Qty = 3,
+        Rate = 4,
+        Value = 5,
+        DiscPercent = 6,
+        DiscValue = 7,
+        AfterDisc = 8,
+        STPercent = 9,
+        STAmount = 10,
+        FEDPercent = 11,
+        FEDValue = 12,
+        NetAmount = 13,
+        UOMID = 14
+        //// UnUsed
+        //isMesh = 15,
+        //Length = 16,
+        //Bundle = 17,
+        //MeshTotal = 18,
+        //Width = 19,
+        //isBundle = 20,
+        //Amount = 21
+
+         //ItemID = 0,                   //.ItemID].Valu
+         //UOMID = 1,                   //.UOMID].Value
+         //Qty = 2,         //.Qty].Value.T
+         //Rate = 3,                   //.Rate].Value.
+         //DiscPercent = 4,          //.DiscPercent]
+         //DiscValue = 5,                   //.DiscValue].V
+         //STPercent = 6,     //.STPercent].V
+         //FEDPercent = 7     //.FEDPercent].
 
     }
     public partial class frmGRNCr : Form
     {
+        //******* Grid Variable Setting -- Begin ******
+        string fHDR = string.Empty;                       // Column Header
+        string fColWidth = string.Empty;                  // Column Width (Input)
+        string fColMinWidth = string.Empty;               // Column Minimum Width
+        string fColMaxInputLen = string.Empty;            // Column Visible Length/Width 
+        string fColReadOnly = string.Empty;               // Column ReadOnly 1 = ReadOnly, 0 = Read-Write  
+
+        string fColType = string.Empty;
+        string fFieldName = string.Empty;
+        //******* Grid Variable Setting -- End ******
+
         LookUp lookUpForm = new LookUp();
 
         DateTime now = DateTime.Now;
@@ -214,7 +232,10 @@ namespace TaxSolution.Temp
             this.KeyPreview = true;
             SetMaxLen(); 
             SetToolTips();
+
+            SettingGridVariable();
             LoadInitialControls();
+            
             //btn_EnableDisable(false);
             sSMaster.Visible = false;
             msk_VocDate.Text = DateTime.Now.ToString();
@@ -245,6 +266,186 @@ namespace TaxSolution.Temp
             
         }
 
+        private void SettingGridVariable()
+        {
+            string lHDR = "";                       // Column Header
+            string lColWidth = "";                  // Column Width (Input)
+            string lColMinWidth = "";               // Column Minimum Width
+            string lColMaxInputLen = "";            // Column Visible Length/Width 
+            string lColFormat = "";                 // Column Format  
+            string lColReadOnly = "";               // Column ReadOnly 1 = ReadOnly, 0 = Read-Write  
+            string lFieldList = "";
+            string tColType = "";
+            string tFieldName = "";
+
+            //
+            lFieldList = "ItemID";        // ItemID = 0,
+            lFieldList += ",Name";        // ItemName = 1,
+            lFieldList += ",UOMName";     // UOMID = 2,
+            lFieldList += ",Qty";         // UOMName = 3,
+            lFieldList += ",Rate";        // Qty = 4,
+            lFieldList += ",Value";       // Rate = 5,
+            lFieldList += ",DiscPercent"; // Value = 6,
+            lFieldList += ",DiscAmount";  // DiscPercent = 7,
+            lFieldList += ",AfterDisc";   // DiscValue = 8,
+            lFieldList += ",STRate";      // AfterDisc = 9,
+            lFieldList += ",STAmount";    // STPercent = 10,
+            lFieldList += ",FSTRate";     // STAmount = 11,
+            lFieldList += ",FSTAmount";   // FEDPercent = 12,
+            lFieldList += ",NetAmount";   // FEDValue = 13,
+            lFieldList += ",UOMID";       // NetAmount = 14
+
+            lHDR += "Item Code";              // Code    
+            lHDR += ",Item Name";            // ItemName
+            lHDR += ",UOM";            // UnitName
+            lHDR += ",Qty";          // Qty
+            lHDR += ",Rate";                 // Rate
+            lHDR += ",Value";                // Value
+            lHDR += ",Discount %";             // DiscPercent
+            lHDR += ",Discount Value";               // DiscAmount
+            lHDR += ",After Discount Value";                  // AfterDisc
+            lHDR += ",Sales Tax %";               // STRate
+            lHDR += ",Sales Tax Amount";              // STAmount
+            lHDR += ",FED %";                // FSTRate
+            lHDR += ",FED Amount";             // FSTAmount
+            lHDR += ",Net Amount";             // NetAmount
+            lHDR += ",UOMID";           // UOMID
+
+
+
+            // Col Visible Width             
+            lColWidth = "   5";                 // Code    
+            lColWidth += ",12";                 // ItemName
+            lColWidth += ",10";                 // UnitName
+            lColWidth += ",7";                 // Qty
+            lColWidth += ", 7";                 // Rate
+            lColWidth += ", 7";                 // Value
+            lColWidth += ", 7";                 // DiscPercent
+            lColWidth += ", 7";                 // DiscAmount
+            lColWidth += ", 5";                 // AfterDisc
+            lColWidth += ", 5";                 // STRate
+            lColWidth += ", 5";                 // STAmount
+            lColWidth += ", 5";                 // FSTRate
+            lColWidth += ", 5";                 // FSTAmount
+            lColWidth += ", 5";                 // NetAmount
+            lColWidth += ", 5";                 // UOMID
+
+            // Column Input Length/Width
+            lColMaxInputLen = "  0";                  // Code    
+            lColMaxInputLen += ", 0";                 // ItemName
+            lColMaxInputLen += ", 0";                 // UnitName
+            lColMaxInputLen += ", 0";                 // Qty
+            lColMaxInputLen += ", 0";                 // Rate
+            lColMaxInputLen += ", 0";                 // Value
+            lColMaxInputLen += ", 0";                 // DiscPercent
+            lColMaxInputLen += ", 0";                 // DiscAmount
+            lColMaxInputLen += ", 0";                 // AfterDisc
+            lColMaxInputLen += ", 0";                 // STRate
+            lColMaxInputLen += ", 0";                 // STAmount
+            lColMaxInputLen += ", 0";                 // FSTRate
+            lColMaxInputLen += ", 0";                 // FSTAmount
+            lColMaxInputLen += ", 0";                 // NetAmount
+            lColMaxInputLen += ", 0";                 // UOMID
+
+
+            // Column Min Width
+            lColMinWidth = "   0";                       // Code        
+            lColMinWidth += ", 0";                       // ItemName    
+            lColMinWidth += ", 0";                       // UnitName
+            lColMinWidth += ", 0";                       // Qty
+            lColMinWidth += ", 0";                       // Rate    
+            lColMinWidth += ", 0";                       // Value    
+            lColMinWidth += ", 0";                       // DiscPercent
+            lColMinWidth += ", 0";                       // DiscAmount
+            lColMinWidth += ", 0";                       // AfterDisc
+            lColMinWidth += ", 0";                       // STRate  
+            lColMinWidth += ", 0";                       // STAmount   
+            lColMinWidth += ", 0";                       // FSTRate
+            lColMinWidth += ", 0";                       // FSTAmount
+            lColMinWidth += ", 0";                       // NetAmount
+            lColMinWidth += ", 0";                       // UOMID
+
+
+            // Column Format
+            lColFormat = "   T";                        // Code         
+            lColFormat += ", T";                        // ItemName    
+            lColFormat += ", T";                        // UnitName
+            lColFormat += ", T";                        // Qty
+            lColFormat += ", T";                        // Rate    
+            lColFormat += ", T";                        // Value    
+            lColFormat += ", T";                        // DiscPercent
+            lColFormat += ", T";                        // DiscAmount
+            lColFormat += ", T";                        // AfterDisc
+            lColFormat += ", T";                        // STRate  
+            lColFormat += ", T";                        // STAmount   
+            lColFormat += ", T";                        // FSTRate
+            lColFormat += ", T";                        // FSTAmount
+            lColFormat += " ,T";                        // NetAmount
+            lColFormat += ", H";                        // UOMID
+
+            // Column ReadOnly 1= readonly, 0 = read-write
+            lColReadOnly = "  0";                       // Code       
+            lColReadOnly += ",1";                       // ItemName   
+            lColReadOnly += ",1";                       // UnitName
+            lColReadOnly += ",0";                       // Qty
+            lColReadOnly += ",0";                       // Rate   
+            lColReadOnly += ",0";                       // Value   
+            lColReadOnly += ",0";                       // DiscPercent
+            lColReadOnly += ",0";                       // DiscAmount
+            lColReadOnly += ",0";                       // AfterDisc
+            lColReadOnly += ",0";                       // STRate 
+            lColReadOnly += ",0";                       // STAmount  
+            lColReadOnly += ",0";                       // FSTRate
+            lColReadOnly += ",0";                       // FSTAmount
+            lColReadOnly += ",0";                       // NetAmount
+            lColReadOnly += ",1";                       // UOMID
+
+            // For Saving Time
+            tColType += "  N0";              // Code    
+            tColType += ",SKP";              // ItemName
+            tColType += ",SKP";              // UnitName
+            tColType += ", N0";               // Qty
+            tColType += ", N2";              // Rate
+            tColType += ", N2";              // Value
+            tColType += ", N2";              // DiscPercent
+            tColType += ", N2";              // DiscAmount
+            tColType += ", N2";              // AfterDisc
+            tColType += ", N2";              // STRate
+            tColType += ", N2";              // STAmount
+            tColType += ", N2";              // FSTRate
+            tColType += ", N2";              // FSTAmount
+            tColType += ", N2";              // NetAmount
+            tColType += ", N0";              // UOMID
+
+
+            tFieldName += "ItemID";                 // Code    
+            tFieldName += ",Name";            // ItemName  
+            tFieldName += ",UOMName";            // UnitName
+            tFieldName += ",Qty";         // Qty
+            tFieldName += ",Rate";            // Rate    
+            tFieldName += ",Value";           // Value    
+            tFieldName += ",DiscPercent";            // DiscPercent
+            tFieldName += ",DiscAmount";          // DiscAmount
+            tFieldName += ",AfterDisc";                 // AfterDisc
+            tFieldName += ",STRate";              // STRate
+            tFieldName += ",STAmount";             // STAmount
+            tFieldName += ",FSTRate";               // FSTRate
+            tFieldName += ",FSTAmount";            // FSTAmount
+            tFieldName += ",NetAmount";         // NetAmount
+            tFieldName += ",UOMID";             // UOMID
+
+            fHDR = lHDR;
+            fColWidth = lColWidth;
+            fColMaxInputLen = lColMaxInputLen;
+            fColMinWidth = lColMinWidth;
+            fColFormat = lColFormat;
+            fColReadOnly = lColReadOnly;
+            fFieldList = lFieldList;
+
+            fColType = tColType;
+            fFieldName = tFieldName;
+
+        }
         private void LoadInitialControls()
         {
             // 1 = dGV Grid Control
@@ -256,48 +457,30 @@ namespace TaxSolution.Temp
             // 7 = Column ReadOnly      // 1 = ReadOnly, 0 = Not ReadOnly
             // 8 = Grid Color Scheme    // Default = 1
             // RO 
-            grdVoucher.Rows.Clear();
-            grdVoucher.Columns.Clear();
+            grd.Rows.Clear();
+            grd.Columns.Clear();
 
-            string lHDR = "";
-            lHDR += "ItemID";                       // 0-   Hiden
-            lHDR += ",Item Name";                      // 1-   Hiden
-            lHDR += ",UOM ID";                          // 2-   
-            lHDR += ",UOM Name";                          // 3-   
-            //lHDR += ",Godown ID";                          // 4-   
-            //lHDR += ",Godown Name";                          // 5-   
-            lHDR += ",Qty";                          // 6-   
-            lHDR += ",Rate";                          // 7-   
-            lHDR += ",Value";                          // 8-   
-            lHDR += ",Disc %";                          // 9-   
-            lHDR += ",Disc Value";                          // 10-   
-            //lHDR += ",is \n\r Bundle";                          // 11-   \n\r
-            //lHDR += ",is \n\r Mesh";                          // 12-   
-            lHDR += ",After Disc";                          // 11-   \n\r
-            lHDR += ",Sales Tax %";                          // 12-   
-            lHDR += ",Sales Tax Amount";                          // 13-   
-            lHDR += ",FED %";                          // 14-   
-            lHDR += ",FED Value";                          // 15-   
-            lHDR += ",Net Amount";                          // 16-   
-            //lHDR += ",''";
+            List<string> lMask = null; //new List<string>;
+            List<string> lCboFillType = null; //new List<string>;
+            List<string> lCboTableKeyField = null; //new List<string>;
+            List<string> lCboQry = null; //new List<string>;
 
             clsDbManager.SetGridHeaderCmb(
-                grdVoucher,
+                grd,
                 15,
-                lHDR,
-                " 5,10, 3, 5, 7, 7, 7, 7, 7, 4, 4, 7, 7, 7,20",
-                " 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0",
-                " 5,10, 3, 5, 7, 7, 7, 7, 7, 4, 4, 7, 7, 7,20",
-                " T, T, H, T,N2,N2,N2,N2,N2,N2,N2,N2,N2,N2,N2",
-                " 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1",
+                fHDR,
+                fColWidth,
+                fColMaxInputLen,
+                fColMinWidth,
+                fColFormat,
+                fColReadOnly,
                 "DATA",
-                null,
-                null,
-                null,
-                null,
+                lMask,
+                lCboFillType,
+                lCboTableKeyField,
+                lCboQry,
                 false,
                 2);
-            //grdVoucher.Columns[(int)GColGrn.WidDec].MinimumWidth = 20;
 
         }
 
@@ -829,9 +1012,8 @@ namespace TaxSolution.Temp
                 {
                     return;
                 }
-                grdVoucher.Rows.Add(txtItemID.Text.ToString(),
+                grd.Rows.Add(txtItemID.Text.ToString(),
                     lblItemName.Text, 
-                    cbo_UOM.SelectedValue.ToString(),
                     cbo_UOM.Text,
                     txtQty.Text.ToString(),
                     txtRate.Text.ToString(),
@@ -843,33 +1025,33 @@ namespace TaxSolution.Temp
                     ((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) * (Convert.ToInt16(txtSalesTaxPercentage.Text.ToString()) / 100), 
                     txtFEDPercentage.Text.ToString(),
                     ((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) * (Convert.ToInt16(txtFEDPercentage.Text.ToString()) / 100),
-                    ((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) + (((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) * (Convert.ToInt16(txtSalesTaxPercentage.Text.ToString()) / 100)) + (((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) * (Convert.ToInt16(txtFEDPercentage.Text.ToString()) / 100))
-                    
+                    ((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) + (((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) * (Convert.ToInt16(txtSalesTaxPercentage.Text.ToString()) / 100)) + (((Convert.ToInt16(txtRate.Text) * Convert.ToInt16(txtQty.Text)) - (Convert.ToInt16(txtQty.Text) * Convert.ToInt16(txtDiscountValue.Text.ToString()))) * (Convert.ToInt16(txtFEDPercentage.Text.ToString()) / 100)),
+                    cbo_UOM.SelectedValue.ToString()
                     );
                 //lblAcID.Text,
                 //ClearSub_Add_Btn();
             }
             else if (btn_Add.Text.ToString() == "&Update")
             {
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.ItemID].Value=txtItemID.Text;
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.ItemName].Value=lblItemName.Text;
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.UOMID].Value = cbo_UOM.SelectedValue.ToString();
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.UOMName].Value = cbo_UOM.Text;
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.GodownID].Value = cboGodown.SelectedValue.ToString();
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.GodownName].Value = cboGodown.Text;
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.ItemID].Value=txtItemID.Text;
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.ItemName].Value=lblItemName.Text;
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.UOMID].Value = cbo_UOM.SelectedValue.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.UOMName].Value = cbo_UOM.Text;
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.GodownID].Value = cboGodown.SelectedValue.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.GodownName].Value = cboGodown.Text;
                 
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Qty].Value=txtQty.Text.ToString();
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Rate].Value=txtRate.Text.ToString();
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Bundle].Value=txtBundle.Text.ToString();
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.MeshTotal].Value=lblTotalMeasure.Text.ToString();
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Amount].Value=lblAmount.Text.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.Qty].Value=txtQty.Text.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.Rate].Value=txtRate.Text.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.Bundle].Value=txtBundle.Text.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.MeshTotal].Value=lblTotalMeasure.Text.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.Amount].Value=lblAmount.Text.ToString();
 
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Length].Value=txtLength.Text.ToString();
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.LenDec].Value=txtLenDec.Text.ToString();
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Width].Value=txtWidth.Text.ToString();
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.WidDec].Value=txtWidDec.Text.ToString();
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.isBundle].Value = (chk_BundleCalc.Checked == true ? 1 : 0);
-                grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.isMesh].Value = (chk_Mesh.Checked == true ? 1 : 0);
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.Length].Value=txtLength.Text.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.LenDec].Value=txtLenDec.Text.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.Width].Value=txtWidth.Text.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.WidDec].Value=txtWidDec.Text.ToString();
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.isBundle].Value = (chk_BundleCalc.Checked == true ? 1 : 0);
+                grd.Rows[fEditRow].Cells[(int)GColCsInv.isMesh].Value = (chk_Mesh.Checked == true ? 1 : 0);
 
                 btn_Add.Text = "&Add";
                 this.tabControl1.SelectedTab = this.tabControl1.TabPages["Transaction"];
@@ -878,10 +1060,10 @@ namespace TaxSolution.Temp
             ClearSub_Add_Btn();
 
             btn_EnableDisable(true);
-            grdVoucher.Visible = false;
+            grd.Visible = false;
             SumVoc();
-            grdVoucher.Visible = true;
-            grdVoucher.Focus();
+            grd.Visible = true;
+            grd.Focus();
 
         }
         private void SumVoc()
@@ -895,7 +1077,7 @@ namespace TaxSolution.Temp
             string str_IsBundle = string.Empty;
             string str_IsMesh = string.Empty;
 
-            for (int i = 0; i < grdVoucher.RowCount; i++)
+            for (int i = 0; i < grd.RowCount; i++)
             {
                 // isBundle Check
             //    if (grdVoucher.Rows[i].Cells[(int)GColGrn.isBundle].Value == null)
@@ -977,6 +1159,21 @@ namespace TaxSolution.Temp
             //     //grdVoucher[2, i].Value = (i + 1).ToString();
             }
 
+            for (int i = 0; i < grd.RowCount; i++)
+            {
+                if (grd.Rows[i].Cells[(int)GColGrn1.NetAmount].Value != null)
+                {
+                    bcheck = decimal.TryParse(grd.Rows[i].Cells[(int)GColGrn1.NetAmount].Value.ToString(), out outValue);
+                    if (bcheck)
+                    {
+                        rtnVal += outValue;
+                        fTotalAmount = fTotalAmount + outValue;
+                    }
+                }
+            }
+
+            lblTotalAmount.Text = String.Format("{0:0,0.00}", fTotalAmount);
+
             lblTotalAmount.Text = String.Format("{0:0,0.00}", fTotalAmount);
             lblTotalQty.Text = String.Format("{0:0,0.00}", fTotalQty);
         }
@@ -1013,14 +1210,14 @@ namespace TaxSolution.Temp
                     }
                 }
                 ErrrMsg = "";
-                if (grdVoucher.Rows.Count < 1)
+                if (grd.Rows.Count < 1)
                 {
                     fTErr++;
                     //dGvError.Rows.Add(fTErr.ToString(), "Trans.", "", "No Transaction in the grid to save. " + "  " + lNow.ToString());
                     MessageBox.Show("No transaction in grid to Save", "Save: " + this.Text.ToString());
                     return false;
                 }
-                fLastRow = grdVoucher.Rows.Count - 1;
+                fLastRow = grd.Rows.Count - 1;
                 if (!FormValidation())
                 {
                     //textAlert.Text = "Form Validation Error: Not Saved." + "  " + lNow.ToString();
@@ -1057,7 +1254,7 @@ namespace TaxSolution.Temp
                 fManySQL = new List<string>();
 
                 // Prepare Master Doc Query List
-                fTNOT = GridTNOT(grdVoucher);
+                fTNOT = GridTNOT(grd);
                 if (!PrepareDocMaster())
                 {
                     //textAlert.Text = "DocMaster: Modifying Doc/Voucher not available for updation.'  ...." + "  " + lNow.ToString();
@@ -1065,7 +1262,7 @@ namespace TaxSolution.Temp
                     return false;
                 }
                 //
-                if (grdVoucher.Rows.Count > 0)
+                if (grd.Rows.Count > 0)
                 {
                     // Prepare Detail Doc Query List
                     if (!PrepareDocDetail())
@@ -1238,7 +1435,7 @@ namespace TaxSolution.Temp
                 else
                 {
                     fDocWhere = " Doc_vt_id = " + fDocTypeID.ToString();
-                    fDocWhere += " AND doc_Fiscal_ID = " + fDocFiscal.ToString();
+                    //fDocWhere += " AND doc_Fiscal_ID = " + fDocFiscal.ToString();
                     fDocWhere += " AND Doc_ID = " + String.Format("{0,0}", lblDocID.Text.ToString());
                     //if (clsDbManager.IDAlreadyExistWw("gl_tran", "doc_id", DocWhere("")))
                     if (clsDbManager.IDAlreadyExistWw("gl_tran", "doc_id", fDocWhere))
@@ -1253,9 +1450,9 @@ namespace TaxSolution.Temp
                         lSQL += " where " + fDocWhere;
 
                         fManySQL.Add(lSQL);
-                    //}
-                    //else
-                    //{
+                        //}
+                        //else
+                        //{
                         //dGvError.Rows.Add("M", "Master Doc", mtDocID.Text.ToString(), "Doc/Voucher " + mtDocID.Text.ToString() + " has been removed.");
                         //MessageBox.Show("Doc/Voucher ID " + lblDocID.Text.ToString() + " has been deleted or removed"
                         //   + "\n\r" + "The Voucher will be saved as new voucher, try again "
@@ -1296,9 +1493,9 @@ namespace TaxSolution.Temp
                         lSQL += ", BiltyDate = '" + StrF01.EnEpos(txtBiltyDate.Text.ToString()) + "'";
                         lSQL += ", VehicleNo = '" + StrF01.EnEpos(txtVehicleNo.Text.ToString()) + "'";
                         lSQL += ", DriverName = '" + StrF01.EnEpos(txtDriverName.Text.ToString()) + "'";
-                        lSQL += ", TransportID = " + cboTransport.SelectedValue.ToString();
+                        //lSQL += ", TransportID = " + cboTransport.SelectedValue.ToString();
                         lSQL += ", isShowRpt = " + (chk_ShowRpt.Checked == true ? 1 : 0);
-                        lSQL += ", isCalcRpt = " + (chk_CalcRpt.Checked == true ? 1 : 0); 
+                        lSQL += ", isCalcRpt = " + (chk_CalcRpt.Checked == true ? 1 : 0);
 
                         lSQL += ", modified_by = " + clsGVar.AppUserID.ToString();                  // 16-
                         lSQL += ", modified_date = '" + StrF01.D2Str(DateTime.Now, true) + "'";     // 18-
@@ -1307,9 +1504,24 @@ namespace TaxSolution.Temp
                         //
                         fManySQL.Add(lSQL);
                     }
+
+                    else
+                    {
+                        fDocWhere = " doc_id = '" + lblDocID.Text.ToString() + "'";
+                        if (clsDbManager.IDAlreadyExistWw("inv_tran", "doc_id", fDocWhere))
+                        {
+
+                            fDocAlreadyExists = true;
+                            lSQL = "delete from inv_trandtl ";
+                            lSQL += " where " + fDocWhere;
+
+                            fManySQL.Add(lSQL);
+                            //
+                        }
+                    }
                 }
 
-                if (grdVoucher.Rows.Count > 0)
+                if (grd.Rows.Count > 0)
                 {
                     /* Commented by Usama Naveed
                     //Prepare_GL_Trans();
@@ -1396,9 +1608,9 @@ namespace TaxSolution.Temp
             string lSQL = "";
             try
             {
-                for (int dGVRow = 0; dGVRow < grdVoucher.Rows.Count; dGVRow++)
+                for (int dGVRow = 0; dGVRow < grd.Rows.Count; dGVRow++)
                 {
-                    if (grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value == null)
+                    if (grd.Rows[dGVRow].Cells[(int)GColGrn1.ItemID].Value == null)
                     {
                         if (dGVRow == fLastRow)
                         {
@@ -1407,7 +1619,7 @@ namespace TaxSolution.Temp
                     }
                     else
                     {
-                        if ((grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString()).Trim(' ', '-') == "")
+                        if ((grd.Rows[dGVRow].Cells[(int)GColGrn1.ItemID].Value.ToString()).Trim(' ', '-') == "")
                         {
                             //lBlank = true;
                             if (dGVRow == fLastRow)
@@ -1441,14 +1653,14 @@ namespace TaxSolution.Temp
                     lSQL += "" + fDocID + "";
                     lSQL += "," + fDocTypeID;
                    // lSQL += ", '" + txtGateInward.Text.ToString() + "'";
-                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString() + "";
-                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.UOMID].Value.ToString() + "";
-                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Qty].Value.ToString() + "";
-                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString() + "";
-                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.DiscountPercentage].Value.ToString() + "";
-                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.DiscountValue].Value.ToString() + "";
-                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.SalesTaxPercentage].Value.ToString() + "";
-                    lSQL += ", " + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.FEDPercentage].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.ItemID].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.UOMID].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.Qty].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.Rate].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.DiscPercent].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.DiscValue].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.STPercent].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.FEDPercent].Value.ToString() + "";
                     lSQL += ")";
                     fManySQL.Add(lSQL);
                 } // End For loopo
@@ -1473,13 +1685,13 @@ namespace TaxSolution.Temp
             try
             {
                 //
-                for (int dGVRow = 0; dGVRow < grdVoucher.Rows.Count; dGVRow++)
+                for (int dGVRow = 0; dGVRow < grd.Rows.Count; dGVRow++)
                 {
                     //frmGroupRights.dictGrpForms.Add(Convert.ToInt32(dGVSelectedForms.Rows[dGVRow].Cells[0].Value.ToString()),
                     //    dGVSelectedForms.Rows[dGVRow].Cells[1].Value.ToString());
                     // Prepare Save Data to Db Table
                     //
-                    if (grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value == null)
+                    if (grd.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value == null)
                     {
                         if (dGVRow == fLastRow)
                         {
@@ -1488,7 +1700,7 @@ namespace TaxSolution.Temp
                     }
                     else
                     {
-                        if ((grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString()).Trim(' ', '-') == "")
+                        if ((grd.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString()).Trim(' ', '-') == "")
                         {
                             //lBlank = true;
                             if (dGVRow == fLastRow)
@@ -1502,9 +1714,9 @@ namespace TaxSolution.Temp
 
                     lSQL = "SELECT gg.Group_st + i.goodsitem_st AS Item_ST ";
                     lSQL += " FROM gds_item i INNER JOIN gds_Group gg ON i.Group_id=gg.Group_id ";
-                    lSQL += " WHERE i.goodsitem_id=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString();
+                    lSQL += " WHERE i.goodsitem_id=" + grd.Rows[dGVRow].Cells[(int)GColGrn.ItemID].Value.ToString();
                     lSQL += "; SELECT goodsuom_st FROM gds_uom WHERE goodsuom_id=";
-                    lSQL += grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.UOMID].Value.ToString();
+                    lSQL += grd.Rows[dGVRow].Cells[(int)GColGrn.UOMID].Value.ToString();
 
                     ds = clsDbManager.GetData_Set(lSQL, "Items");
                     if (ds.Tables[0].Rows.Count > 0)
@@ -1517,32 +1729,32 @@ namespace TaxSolution.Temp
 
                     }
 
-                    if (grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isMesh].Value != null)
+                    if (grd.Rows[dGVRow].Cells[(int)GColGrn.isMesh].Value != null)
                     {
-                        if (clsDbManager.ConvBit(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isBundle].Value.ToString()) == "0"
-                            && clsDbManager.ConvBit(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isMesh].Value.ToString()) == "0")
+                        if (clsDbManager.ConvBit(grd.Rows[dGVRow].Cells[(int)GColGrn.isBundle].Value.ToString()) == "0"
+                            && clsDbManager.ConvBit(grd.Rows[dGVRow].Cells[(int)GColGrn.isMesh].Value.ToString()) == "0")
                         {
-                            strItemDes += " B=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Bundle].Value.ToString()
-                                + " Q=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Qty].Value.ToString()
+                            strItemDes += " B=" + grd.Rows[dGVRow].Cells[(int)GColGrn.Bundle].Value.ToString()
+                                + " Q=" + grd.Rows[dGVRow].Cells[(int)GColGrn.Qty].Value.ToString()
                                 + " " + strUOM_ST
-                                + " @" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString();
+                                + " @" + grd.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString();
                         }
 
-                        if (clsDbManager.ConvBit(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isBundle].Value.ToString()) == "1")
+                        if (clsDbManager.ConvBit(grd.Rows[dGVRow].Cells[(int)GColGrn.isBundle].Value.ToString()) == "1")
                         {
-                            strItemDes += " Q=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Bundle].Value.ToString()
+                            strItemDes += " Q=" + grd.Rows[dGVRow].Cells[(int)GColGrn.Bundle].Value.ToString()
                                 + " " + strUOM_ST
-                                + " @" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString();
+                                + " @" + grd.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString();
                         }
 
-                        if (clsDbManager.ConvBit(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.isMesh].Value.ToString()) == "1")
+                        if (clsDbManager.ConvBit(grd.Rows[dGVRow].Cells[(int)GColGrn.isMesh].Value.ToString()) == "1")
                         {
-                            strItemDes += " B=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Bundle].Value.ToString()
-                                + " x L=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Length].Value.ToString()
-                                + " x W=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Width].Value.ToString()
-                                + " Q=" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.MeshTotal].Value.ToString()
+                            strItemDes += " B=" + grd.Rows[dGVRow].Cells[(int)GColGrn.Bundle].Value.ToString()
+                                + " x L=" + grd.Rows[dGVRow].Cells[(int)GColGrn.Length].Value.ToString()
+                                + " x W=" + grd.Rows[dGVRow].Cells[(int)GColGrn.Width].Value.ToString()
+                                + " Q=" + grd.Rows[dGVRow].Cells[(int)GColGrn.MeshTotal].Value.ToString()
                                 + " " + strUOM_ST
-                                + " @" + grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString();
+                                + " @" + grd.Rows[dGVRow].Cells[(int)GColGrn.Rate].Value.ToString();
                         }
 
                     }
@@ -1579,7 +1791,7 @@ namespace TaxSolution.Temp
                     //                                                                                       // 5- Ac Title NA
                     lSQL += ", '" + strItemDes + "'";      // 8- Narration 
                     lSQL += ", " + 0;           // 9- Debit. 
-                    lSQL += ", " + clsDbManager.ConvDecimal(grdVoucher.Rows[dGVRow].Cells[(int)GColGrn.Amount].Value.ToString());           // 10- Credit
+                    lSQL += ", " + clsDbManager.ConvDecimal(grd.Rows[dGVRow].Cells[(int)GColGrn.Amount].Value.ToString());           // 10- Credit
                     lSQL += ", " + 0;          // 11- Combo 1 
                     lSQL += ", 0"; //is Checked
                     lSQL += ")";
@@ -2179,6 +2391,7 @@ namespace TaxSolution.Temp
                         btn_EnableDisable(true);
                     }
                     LoadGridData();
+                    SumVoc();
                     //txtManualDoc.Enabled = false;
                 }
             }
@@ -2210,9 +2423,9 @@ namespace TaxSolution.Temp
             lblTotalQty.Text = string.Empty;
             lblTotalAmount.Text = string.Empty;
             //
-            if (grdVoucher.Rows.Count > 0)
+            if (grd.Rows.Count > 0)
             {
-                grdVoucher.Rows.Clear();
+                grd.Rows.Clear();
             }
             ResetFields();
             chk_Edit.Checked = false;
@@ -2276,87 +2489,46 @@ namespace TaxSolution.Temp
             btn_View.Enabled = pEnableDisable;
         }
 
-        //ItemID = 0,
-        //ItemName = 1,
-        //UOMID = 2,
-        //UOMName = 3,
-        //GodownID = 4,
-        //GodownName = 5,
-        //Qty = 6,
-        //Rate = 7,
-        //Value = 8,
-        //DiscountPercentage = 9,
-        //DiscountValue = 10,
-        //AfterDiscount = 11,
-        //SalesTaxPercentage = 12,
-        //SalesTaxAmount = 13,
-        //FEDPercentage = 14,
-        //FEDValue = 15,
-        //NetAmount = 16,
+        //"ItemID";     
+        //",Name";      
+        //",UOMName";   
+        //",Qty";       
+        //",Rate";      
+        //",Value";     
+        //",DiscPercent"
+        //",DiscAmount";
+        //",AfterDisc"; 
+        //",STRate";    
+        //",STAmount";  
+        //",FSTRate";   
+        //",FSTAmount"; 
+        //",NetAmount"; 
+        //",UOMID";     
+        
+        
 
-        private void LoadGridData() 
+        private void LoadGridData()
         {
-          string lSQL = "";
-          lSQL += " select i.ItemID AS ItemCode, item.goodsitem_title AS ItemName, u.goodsuom_title AS UOMName, i.UOMID, i.Qty_In AS Qty, i.Rate, ";
-          lSQL += " (i.Qty_In * Rate) AS Value,  i.DiscPercent AS DiscountPercentage, "; 
-          lSQL += " ((i.DiscPercent/100)* Rate) AS DiscountValue, "; 
-          lSQL += " i.DiscAmount AS AfterDiscount, i.STRate AS SalesTaxPercentage, ((i.STRate/100)*DiscAmount) AS SalesTaxAmount, ";
-          lSQL += " i.FSTRate AS FEDPercentage, ((i.FSTRate/100)*DiscAmount) AS FEDValue, ";
-          lSQL += " (i.DiscAmount + ((i.STRate/100)*DiscAmount) + ((i.FSTRate/100)*DiscAmount)) AS NetAmount  ";
-          lSQL += " from inv_tran it INNER JOIN inv_trandtl i ON i.doc_id = it.doc_id  INNER JOIN gds_uom u ON i.UOMID = u.goodsuom_id ";
-          lSQL += " INNER JOIN gds_item item ON i.ItemID = item.goodsitem_id ";
-          lSQL += " WHERE it.doc_id = " + lblDocID.Text.ToString();
+            string lSQL = "";
+            lSQL += "  select i.ItemID AS ItemID, item.goodsitem_title AS Name, i.UOMID, ";
+            lSQL += " u.goodsuom_title AS UOMName, i.Qty_In AS Qty, i.Rate,  (i.Qty_In * Rate) AS Value, ";
+            lSQL += " i.DiscPercent,  ((i.DiscPercent/100)* Rate) AS DiscAmount, ";
+            lSQL += " i.DiscAmount AS AfterDisc, i.STRate, ";
+            lSQL += " ((i.STRate/100)*DiscAmount) AS STAmount,  i.FSTRate, ";
+            lSQL += " ((i.FSTRate/100)*DiscAmount) AS FSTAmount, ";
+            lSQL += " (i.DiscAmount + ((i.STRate/100)*DiscAmount) + ((i.FSTRate/100)*DiscAmount)) AS NetAmount ";
+            lSQL += " from inv_tran it INNER JOIN inv_trandtl i ON i.doc_id = it.doc_id INNER JOIN gds_uom u ON i.UOMID = u.goodsuom_id ";
+            lSQL += " INNER JOIN gds_item item ON i.ItemID = item.goodsitem_id ";
+            lSQL += " WHERE it.doc_id = " + lblDocID.Text.ToString();
 
-          string tFieldList = "";
-          tFieldList = "  ItemID";            //ItemID = 0,
-          tFieldList += ", ItemName";  //ItemName = 1,
-          tFieldList += ", UOMID ";           //UOMID = 2,
-          tFieldList += ", UOMName";   //UOMName = 3,
-          // tFieldList += ", GodownID";      //GodownID = 4,
-          //  tFieldList += ", Godown_title"; //GodownName = 5,
-          tFieldList += ", Qty";           //Qty = 6,
-          tFieldList += ", Rate";             //Rate = 7,
-          tFieldList += ", Value";           //Value = 8,
-          tFieldList += ", DiscountPercentage";        //DiscountPercentage = 9,
-          tFieldList += ", DiscountValue";           //DiscountValue = 10,
-          tFieldList += ", AfterDiscount";         //AfterDiscount = 11,
-          tFieldList += ", SalesTaxPercentage";           //SalesTaxPercentage = 12,
-          tFieldList += ", SalesTaxAmount";           //SalesTaxAmount = 13,
-          tFieldList += ", FEDPercentage";           //FEDPercentage = 14,
-          tFieldList += ", FEDValue";            //FEDValue = 15,
-          tFieldList += ", NetAmount";           //NetAmount = 16,
-          //tFieldList += ", ''";              
-          // 
-          string tColFormat = "TB";   //ItemID = 0,
-          //tColFormat += ",TB";      //ItemName = 1,
-          //tColFormat += ",SN";      //UOMID = 2,
-          tColFormat = "TB";          //UOMName = 3,
-          tColFormat += ",N2";        //GodownID = 4,
-          tColFormat += ",TB";        //GodownName = 5,
-          tColFormat += ",N2";        //Qty = 6,
-          //tColFormat += ",TB";      //Rate = 7,
-          //tColFormat += ",TB";      //Value = 8,
-          tColFormat += ",N2";        //DiscountPercentage = 9,
-          tColFormat += ",N2";        //DiscountValue = 10,
-          tColFormat += ",N2";        //AfterDiscount = 11,
-          tColFormat += ",N2";        //SalesTaxPercentage = 12,
-          // tColFormat += ",N2";     //SalesTaxAmount = 13,
-          // tColFormat += ",N2";     //FEDPercentage = 14,
-          tColFormat += ",N2";        //FEDValue = 15,
-          tColFormat += ",N2";        //NetAmount = 16,
-          tColFormat += ",N2";
-          tColFormat += ",N2";
-          tColFormat += ",N2";
-          //tColFormat += ",TB";      
-
-
-          clsDbManager.FillDataGrid(
-              grdVoucher,
-              lSQL,
-              fFieldList,
-              fColFormat);
-
+            clsDbManager.FillDataGrid(
+                grd,
+                lSQL,
+                fFieldList,
+                fColFormat);
         }
+
+
         // Prepare Document Where
         private string DocWhere(string pPrefix = "")
         {
@@ -2424,11 +2596,11 @@ namespace TaxSolution.Temp
                     return;
                 }
 
-                if (grdVoucher.Rows.Count > 0)
+                if (grd.Rows.Count > 0)
                 {
                     if (MessageBox.Show("Are you sure, really want to Delete row ?", "Delete Row", MessageBoxButtons.OKCancel) == DialogResult.OK)
                     {
-                        grdVoucher.Rows.RemoveAt(grdVoucher.CurrentRow.Index);
+                        grd.Rows.RemoveAt(grd.CurrentRow.Index);
                         SumVoc();
                         return;
                     }
@@ -2446,7 +2618,7 @@ namespace TaxSolution.Temp
                     return;
                 }
 
-                if (grdVoucher.Rows.Count > 0)
+                if (grd.Rows.Count > 0)
                 {
 
                     if (fEditMod == true)
@@ -2457,29 +2629,29 @@ namespace TaxSolution.Temp
                         }
                     }
                     //Current Row
-                    fEditRow = grdVoucher.CurrentRow.Index;
+                    fEditRow = grd.CurrentRow.Index;
 
-                    txtItemID.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.ItemID].Value.ToString();
-                    lblItemName.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.ItemName].Value.ToString();
-                    cbo_UOM.SelectedIndex = clsSetCombo.Set_ComboBox(cbo_UOM, int.Parse(grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.UOMID].Value.ToString()));
-                    cboGodown.SelectedIndex = clsSetCombo.Set_ComboBox(cboGodown, int.Parse(grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.GodownID].Value.ToString()));
+                    txtItemID.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.ItemID].Value.ToString();
+                    lblItemName.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.ItemName].Value.ToString();
+                    cbo_UOM.SelectedIndex = clsSetCombo.Set_ComboBox(cbo_UOM, int.Parse(grd.Rows[fEditRow].Cells[(int)GColCsInv.UOMID].Value.ToString()));
+                    cboGodown.SelectedIndex = clsSetCombo.Set_ComboBox(cboGodown, int.Parse(grd.Rows[fEditRow].Cells[(int)GColCsInv.GodownID].Value.ToString()));
 
-                    txtQty.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Qty].Value.ToString();
-                    txtRate.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Rate].Value.ToString();
-                    txtBundle.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Bundle].Value.ToString();
-                    lblTotalMeasure.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.MeshTotal].Value.ToString();
-                    lblAmount.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Amount].Value.ToString();
-                    txtLength.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Length].Value.ToString();
-                    txtLenDec.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.LenDec].Value.ToString();
-                    txtWidth.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.Width].Value.ToString();
-                    txtWidDec.Text = grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.WidDec].Value.ToString();
+                    txtQty.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.Qty].Value.ToString();
+                    txtRate.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.Rate].Value.ToString();
+                    txtBundle.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.Bundle].Value.ToString();
+                    lblTotalMeasure.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.MeshTotal].Value.ToString();
+                    lblAmount.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.Amount].Value.ToString();
+                    txtLength.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.Length].Value.ToString();
+                    txtLenDec.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.LenDec].Value.ToString();
+                    txtWidth.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.Width].Value.ToString();
+                    txtWidDec.Text = grd.Rows[fEditRow].Cells[(int)GColCsInv.WidDec].Value.ToString();
 
                     //ConvBit(pdGv.Rows[i].Cells[j].Value.ToString())
-                    if (grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.isBundle].Value.ToString() == "True")
+                    if (grd.Rows[fEditRow].Cells[(int)GColCsInv.isBundle].Value.ToString() == "True")
                     {
                         chk_BundleCalc.Checked = true;
                     }
-                    if (grdVoucher.Rows[fEditRow].Cells[(int)GColCsInv.isMesh].Value.ToString() == "True")
+                    if (grd.Rows[fEditRow].Cells[(int)GColCsInv.isMesh].Value.ToString() == "True")
                     {
                         chk_Mesh.Checked = true;
                     }
@@ -2510,7 +2682,7 @@ namespace TaxSolution.Temp
 
         private void btn_FocusGrid_Click(object sender, EventArgs e)
         {
-            grdVoucher.Focus();
+            grd.Focus();
         }
 
         private void frmGRNCr_KeyDown(object sender, KeyEventArgs e)
@@ -2749,6 +2921,118 @@ namespace TaxSolution.Temp
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        static bool HelperConvertNumberToText(int num, out string buf)
+        {
+            string[] strones = {
+            "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+            "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen",
+            "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen",
+          };
+
+            string[] strtens = {
+              "Ten", "Twenty", "Thirty", "Fourty", "Fifty", "Sixty",
+              "Seventy", "Eighty", "Ninety", "Hundred"
+          };
+
+            string result = "";
+            buf = "";
+            int single, tens, hundreds;
+
+            if (num > 1000)
+                return false;
+
+            hundreds = num / 100;
+            num = num - hundreds * 100;
+            if (num < 20)
+            {
+                tens = 0; // special case
+                single = num;
+            }
+            else
+            {
+                tens = num / 10;
+                num = num - tens * 10;
+                single = num;
+            }
+
+            result = "";
+
+            if (hundreds > 0)
+            {
+                result += strones[hundreds - 1];
+                result += " Hundred ";
+            }
+            if (tens > 0)
+            {
+                result += strtens[tens - 1];
+                result += " ";
+            }
+            if (single > 0)
+            {
+                result += strones[single - 1];
+                result += " ";
+            }
+
+            buf = result;
+            return true;
+        }
+
+        static bool ConvertNumberToText(int num, out string result)
+        {
+            string tempString = "";
+            int thousands;
+            int temp;
+            result = "";
+            if (num < 0 || num > 100000)
+            {
+                System.Console.WriteLine(num + " \tNot Supported");
+                return false;
+            }
+
+            if (num == 0)
+            {
+                System.Console.WriteLine(num + " \tZero");
+                return false;
+            }
+
+            if (num < 1000)
+            {
+                HelperConvertNumberToText(num, out tempString);
+                result += tempString;
+            }
+            else
+            {
+                thousands = num / 1000;
+                temp = num - thousands * 1000;
+                HelperConvertNumberToText(thousands, out tempString);
+                result += tempString;
+                result += "Thousand ";
+                HelperConvertNumberToText(temp, out tempString);
+                result += tempString;
+            }
+            return true;
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void lblTotalAmount_TextChanged(object sender, EventArgs e)
+        {
+            double num = Convert.ToDouble(lblTotalAmount.Text);
+
+            int num2 = Convert.ToInt16(num);
+            
+            string result = string.Empty;
+            //num = arrNum[i];
+            if (ConvertNumberToText(num2, out result) == true)
+            {
+                lblWordsAmount.Text = result;
+                lblWordsAmount.Text += " Rupees Only";
+            }
         }
     }
 }

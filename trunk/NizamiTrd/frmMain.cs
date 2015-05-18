@@ -142,6 +142,10 @@ namespace TaxSolution
             frm.MdiParent = this;
             frm.Show();
 
+            //Temp.frmGRNCrNew frm = new Temp.frmGRNCrNew();
+            //frm.MdiParent = this;
+            //frm.Show(); 
+
         }
 
         private void creditSaleTransactionToolStripMenuItem_Click(object sender, EventArgs e)

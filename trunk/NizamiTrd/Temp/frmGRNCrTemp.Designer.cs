@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtManualDoc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,7 +48,21 @@
             this.lblInvTotal = new System.Windows.Forms.Label();
             this.lblTotalQty = new System.Windows.Forms.Label();
             this.lblTotalAmount = new System.Windows.Forms.Label();
-            this.grdVoucher = new System.Windows.Forms.DataGridView();
+            this.grd = new System.Windows.Forms.DataGridView();
+            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiscPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiscAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AfterDisc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FSTValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FSTRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NetAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Transport = new System.Windows.Forms.TabPage();
             this.txtBiltyDate = new System.Windows.Forms.TextBox();
             this.txtDriverName = new System.Windows.Forms.TextBox();
@@ -138,9 +152,12 @@
             this.chk_Edit = new System.Windows.Forms.CheckBox();
             this.chk_CalcRpt = new System.Windows.Forms.CheckBox();
             this.chk_ShowRpt = new System.Windows.Forms.CheckBox();
+            this.lblAmountInWords = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.lblWordsAmount = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Transaction.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdVoucher)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd)).BeginInit();
             this.Transport.SuspendLayout();
             this.InputTrans.SuspendLayout();
             this.groupBoxInput.SuspendLayout();
@@ -300,7 +317,7 @@
             this.Transaction.Controls.Add(this.lblInvTotal);
             this.Transaction.Controls.Add(this.lblTotalQty);
             this.Transaction.Controls.Add(this.lblTotalAmount);
-            this.Transaction.Controls.Add(this.grdVoucher);
+            this.Transaction.Controls.Add(this.grd);
             this.Transaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Transaction.Location = new System.Drawing.Point(4, 29);
             this.Transaction.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -365,28 +382,114 @@
             this.lblTotalAmount.Size = new System.Drawing.Size(165, 26);
             this.lblTotalAmount.TabIndex = 64;
             this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTotalAmount.TextChanged += new System.EventHandler(this.lblTotalAmount_TextChanged);
             // 
-            // grdVoucher
+            // grd
             // 
-            this.grdVoucher.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.grd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdVoucher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdVoucher.Location = new System.Drawing.Point(9, 9);
-            this.grdVoucher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grdVoucher.Name = "grdVoucher";
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.NullValue = null;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.grdVoucher.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.grdVoucher.Size = new System.Drawing.Size(968, 317);
-            this.grdVoucher.TabIndex = 0;
-            this.grdVoucher.Enter += new System.EventHandler(this.grdVoucher_Enter);
-            this.grdVoucher.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdVoucher_KeyDown);
-            this.grdVoucher.Leave += new System.EventHandler(this.grdVoucher_Leave);
+            this.grd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemID,
+            this.Name,
+            this.UOM,
+            this.Qty,
+            this.Rate,
+            this.Value,
+            this.DiscPercent,
+            this.DiscAmount,
+            this.AfterDisc,
+            this.STRate,
+            this.STAmount,
+            this.FSTValue,
+            this.FSTRate,
+            this.NetAmount});
+            this.grd.Location = new System.Drawing.Point(9, 9);
+            this.grd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grd.Name = "grd";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.grd.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.grd.Size = new System.Drawing.Size(968, 317);
+            this.grd.TabIndex = 0;
+            this.grd.Enter += new System.EventHandler(this.grdVoucher_Enter);
+            this.grd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdVoucher_KeyDown);
+            this.grd.Leave += new System.EventHandler(this.grdVoucher_Leave);
+            // 
+            // ItemID
+            // 
+            this.ItemID.HeaderText = "ItemID";
+            this.ItemID.Name = "ItemID";
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            // 
+            // UOM
+            // 
+            this.UOM.HeaderText = "UOM";
+            this.UOM.Name = "UOM";
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            // 
+            // Rate
+            // 
+            this.Rate.HeaderText = "Rate";
+            this.Rate.Name = "Rate";
+            // 
+            // Value
+            // 
+            this.Value.HeaderText = "Value";
+            this.Value.Name = "Value";
+            // 
+            // DiscPercent
+            // 
+            this.DiscPercent.HeaderText = "DiscPercent";
+            this.DiscPercent.Name = "DiscPercent";
+            // 
+            // DiscAmount
+            // 
+            this.DiscAmount.HeaderText = "DiscAmount";
+            this.DiscAmount.Name = "DiscAmount";
+            // 
+            // AfterDisc
+            // 
+            this.AfterDisc.HeaderText = "AfterDisc";
+            this.AfterDisc.Name = "AfterDisc";
+            // 
+            // STRate
+            // 
+            this.STRate.HeaderText = "STRate";
+            this.STRate.Name = "STRate";
+            // 
+            // STAmount
+            // 
+            this.STAmount.HeaderText = "STAmount";
+            this.STAmount.Name = "STAmount";
+            // 
+            // FSTValue
+            // 
+            this.FSTValue.HeaderText = "FSTValue";
+            this.FSTValue.Name = "FSTValue";
+            // 
+            // FSTRate
+            // 
+            this.FSTRate.HeaderText = "FSTRate";
+            this.FSTRate.Name = "FSTRate";
+            // 
+            // NetAmount
+            // 
+            this.NetAmount.HeaderText = "NetAmount";
+            this.NetAmount.Name = "NetAmount";
             // 
             // Transport
             // 
@@ -1364,7 +1467,7 @@
             this.tStextTotal,
             this.tSlblAlert,
             this.textAlert});
-            this.sSMaster.Location = new System.Drawing.Point(0, 556);
+            this.sSMaster.Location = new System.Drawing.Point(0, 578);
             this.sSMaster.Name = "sSMaster";
             this.sSMaster.Size = new System.Drawing.Size(1003, 25);
             this.sSMaster.TabIndex = 140;
@@ -1469,11 +1572,41 @@
             this.chk_ShowRpt.Text = "Show in Sale Point Report";
             this.chk_ShowRpt.UseVisualStyleBackColor = true;
             // 
+            // lblAmountInWords
+            // 
+            this.lblAmountInWords.AutoSize = true;
+            this.lblAmountInWords.Location = new System.Drawing.Point(15, 548);
+            this.lblAmountInWords.Name = "lblAmountInWords";
+            this.lblAmountInWords.Size = new System.Drawing.Size(0, 20);
+            this.lblAmountInWords.TabIndex = 146;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(19, 543);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(0, 20);
+            this.label31.TabIndex = 147;
+            // 
+            // lblWordsAmount
+            // 
+            this.lblWordsAmount.BackColor = System.Drawing.Color.Transparent;
+            this.lblWordsAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblWordsAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWordsAmount.Location = new System.Drawing.Point(19, 548);
+            this.lblWordsAmount.Name = "lblWordsAmount";
+            this.lblWordsAmount.Size = new System.Drawing.Size(449, 23);
+            this.lblWordsAmount.TabIndex = 69;
+            this.lblWordsAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmGRNCr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1003, 581);
+            this.ClientSize = new System.Drawing.Size(1003, 603);
+            this.Controls.Add(this.lblWordsAmount);
+            this.Controls.Add(this.label31);
+            this.Controls.Add(this.lblAmountInWords);
             this.Controls.Add(this.chk_CalcRpt);
             this.Controls.Add(this.chk_ShowRpt);
             this.Controls.Add(this.chk_Edit);
@@ -1505,7 +1638,6 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "frmGRNCr";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Credit Purchase Entry";
             this.Load += new System.EventHandler(this.frmVoc_Load);
@@ -1513,7 +1645,7 @@
             this.tabControl1.ResumeLayout(false);
             this.Transaction.ResumeLayout(false);
             this.Transaction.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdVoucher)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd)).EndInit();
             this.Transport.ResumeLayout(false);
             this.Transport.PerformLayout();
             this.InputTrans.ResumeLayout(false);
@@ -1547,7 +1679,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage Transaction;
         private System.Windows.Forms.TabPage Transport;
-        private System.Windows.Forms.DataGridView grdVoucher;
+        private System.Windows.Forms.DataGridView grd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBiltyNo;
@@ -1639,5 +1771,22 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox txtFEDPercentage;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UOM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiscPercent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiscAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AfterDisc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FSTValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FSTRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NetAmount;
+        private System.Windows.Forms.Label lblAmountInWords;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label lblWordsAmount;
     }
 }
