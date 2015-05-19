@@ -1196,6 +1196,13 @@ namespace TaxSolution
              frm.Show();
          }
 
+         private void gateInwardToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+             Temp.frmGateInword frm = new Temp.frmGateInword();
+             frm.MdiParent = this;
+             frm.Show();
+         }
+
  
     }
 }

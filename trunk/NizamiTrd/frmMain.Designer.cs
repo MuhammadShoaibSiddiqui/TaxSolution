@@ -47,6 +47,8 @@
             this.itemGroupDescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemCodeDescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripSeparator();
+            this.companyLogoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem31 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalVoucherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +80,9 @@
             this.creditSaleTransactionToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem25 = new System.Windows.Forms.ToolStripSeparator();
             this.factoryToShopShopToFactoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gateInwardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saleOrderEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gateOutwardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productionTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issueToProductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.factoryToFactoryImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -160,8 +165,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.companyLogoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem31 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -309,6 +312,18 @@
             // 
             this.toolStripMenuItem17.Name = "toolStripMenuItem17";
             this.toolStripMenuItem17.Size = new System.Drawing.Size(205, 6);
+            // 
+            // companyLogoToolStripMenuItem
+            // 
+            this.companyLogoToolStripMenuItem.Name = "companyLogoToolStripMenuItem";
+            this.companyLogoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.companyLogoToolStripMenuItem.Text = "Company Logo";
+            this.companyLogoToolStripMenuItem.Click += new System.EventHandler(this.companyLogoToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem31
+            // 
+            this.toolStripMenuItem31.Name = "toolStripMenuItem31";
+            this.toolStripMenuItem31.Size = new System.Drawing.Size(205, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -488,7 +503,10 @@
             this.toolStripMenuItem23,
             this.creditSaleTransactionToolStripMenuItem2,
             this.toolStripMenuItem25,
-            this.factoryToShopShopToFactoryToolStripMenuItem});
+            this.factoryToShopShopToFactoryToolStripMenuItem,
+            this.gateInwardToolStripMenuItem,
+            this.saleOrderEntryToolStripMenuItem,
+            this.gateOutwardToolStripMenuItem});
             this.shopToolStripMenuItem.Name = "shopToolStripMenuItem";
             this.shopToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.shopToolStripMenuItem.Text = "Shop Activity";
@@ -537,6 +555,25 @@
             this.factoryToShopShopToFactoryToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.factoryToShopShopToFactoryToolStripMenuItem.Text = "Factory to Shop/Shop to Factory";
             this.factoryToShopShopToFactoryToolStripMenuItem.Click += new System.EventHandler(this.factoryToShopShopToFactoryToolStripMenuItem_Click);
+            // 
+            // gateInwardToolStripMenuItem
+            // 
+            this.gateInwardToolStripMenuItem.Name = "gateInwardToolStripMenuItem";
+            this.gateInwardToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.gateInwardToolStripMenuItem.Text = "Gate Inward";
+            this.gateInwardToolStripMenuItem.Click += new System.EventHandler(this.gateInwardToolStripMenuItem_Click);
+            // 
+            // saleOrderEntryToolStripMenuItem
+            // 
+            this.saleOrderEntryToolStripMenuItem.Name = "saleOrderEntryToolStripMenuItem";
+            this.saleOrderEntryToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.saleOrderEntryToolStripMenuItem.Text = "Sale Order Entry";
+            // 
+            // gateOutwardToolStripMenuItem
+            // 
+            this.gateOutwardToolStripMenuItem.Name = "gateOutwardToolStripMenuItem";
+            this.gateOutwardToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.gateOutwardToolStripMenuItem.Text = "Gate Outward";
             // 
             // productionTransactionToolStripMenuItem
             // 
@@ -1154,18 +1191,6 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // companyLogoToolStripMenuItem
-            // 
-            this.companyLogoToolStripMenuItem.Name = "companyLogoToolStripMenuItem";
-            this.companyLogoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.companyLogoToolStripMenuItem.Text = "Company Logo";
-            this.companyLogoToolStripMenuItem.Click += new System.EventHandler(this.companyLogoToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem31
-            // 
-            this.toolStripMenuItem31.Name = "toolStripMenuItem31";
-            this.toolStripMenuItem31.Size = new System.Drawing.Size(205, 6);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1329,6 +1354,9 @@
         private System.Windows.Forms.ToolStripMenuItem detailedPrintingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem companyLogoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem31;
+        private System.Windows.Forms.ToolStripMenuItem gateInwardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gateOutwardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saleOrderEntryToolStripMenuItem;
     }
 }
 

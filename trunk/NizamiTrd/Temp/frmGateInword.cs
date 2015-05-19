@@ -30,7 +30,7 @@ using TaxSolution.PrintViewer;
 
 namespace TaxSolution.Temp
 {
-    enum GColGrn1
+    enum GColGIn
     {
         ItemID = 0,
         ItemName = 1,
@@ -38,15 +38,16 @@ namespace TaxSolution.Temp
         Qty = 3,
         Rate = 4,
         Value = 5,
-        DiscPercent = 6,
-        DiscValue = 7,
-        AfterDisc = 8,
-        STPercent = 9,
-        STAmount = 10,
-        FEDPercent = 11,
-        FEDValue = 12,
-        NetAmount = 13,
-        UOMID = 14
+        UOMID = 6
+        //DiscPercent = 6,
+        //DiscValue = 7,
+        //AfterDisc = 8,
+        //STPercent = 9,
+        //STAmount = 10,
+        //FEDPercent = 11,
+        //FEDValue = 12,
+        //NetAmount = 13,
+        //UOMID = 14
         //// UnUsed
         //isMesh = 15,
         //Length = 16,
@@ -66,7 +67,7 @@ namespace TaxSolution.Temp
          //FEDPercent = 7     //.FEDPercent].
 
     }
-    public partial class frmGRNCr : Form
+    public partial class frmGateInword : Form
     {
         //******* Grid Variable Setting -- Begin ******
         string fHDR = string.Empty;                       // Column Header
@@ -177,7 +178,7 @@ namespace TaxSolution.Temp
         string fColFormat = string.Empty;                 // Column Format  
         string fFieldList = string.Empty;
 
-        public frmGRNCr()
+        public frmGateInword()
         {
             InitializeComponent(); 
             btn_Save.Enabled = false;
@@ -285,15 +286,7 @@ namespace TaxSolution.Temp
             lFieldList += ",Qty";         // UOMName = 3,
             lFieldList += ",Rate";        // Qty = 4,
             lFieldList += ",Value";       // Rate = 5,
-            lFieldList += ",DiscPercent"; // Value = 6,
-            lFieldList += ",DiscAmount";  // DiscPercent = 7,
-            lFieldList += ",AfterDisc";   // DiscValue = 8,
-            lFieldList += ",STRate";      // AfterDisc = 9,
-            lFieldList += ",STAmount";    // STPercent = 10,
-            lFieldList += ",FSTRate";     // STAmount = 11,
-            lFieldList += ",FSTAmount";   // FEDPercent = 12,
-            lFieldList += ",NetAmount";   // FEDValue = 13,
-            lFieldList += ",UOMID";       // NetAmount = 14
+            lFieldList += ",UOMID";       // UOMID = 6
 
             lHDR += "Item Code";              // Code    
             lHDR += ",Item Name";            // ItemName
@@ -301,33 +294,17 @@ namespace TaxSolution.Temp
             lHDR += ",Qty";          // Qty
             lHDR += ",Rate";                 // Rate
             lHDR += ",Value";                // Value
-            lHDR += ",Discount %";             // DiscPercent
-            lHDR += ",Discount Value";               // DiscAmount
-            lHDR += ",After Discount Value";                  // AfterDisc
-            lHDR += ",Sales Tax %";               // STRate
-            lHDR += ",Sales Tax Amount";              // STAmount
-            lHDR += ",FED %";                // FSTRate
-            lHDR += ",FED Amount";             // FSTAmount
-            lHDR += ",Net Amount";             // NetAmount
             lHDR += ",UOMID";           // UOMID
 
 
 
             // Col Visible Width             
-            lColWidth = "   5";                 // Code    
-            lColWidth += ",12";                 // ItemName
-            lColWidth += ",10";                 // UnitName
-            lColWidth += ",7";                 // Qty
+            lColWidth = "    5";                 // Code    
+            lColWidth += ", 15";                 // ItemName
+            lColWidth += ", 10";                 // UnitName
+            lColWidth += ", 10";                 // Qty
             lColWidth += ", 7";                 // Rate
             lColWidth += ", 7";                 // Value
-            lColWidth += ", 7";                 // DiscPercent
-            lColWidth += ", 7";                 // DiscAmount
-            lColWidth += ", 5";                 // AfterDisc
-            lColWidth += ", 5";                 // STRate
-            lColWidth += ", 5";                 // STAmount
-            lColWidth += ", 5";                 // FSTRate
-            lColWidth += ", 5";                 // FSTAmount
-            lColWidth += ", 5";                 // NetAmount
             lColWidth += ", 5";                 // UOMID
 
             // Column Input Length/Width
@@ -337,14 +314,6 @@ namespace TaxSolution.Temp
             lColMaxInputLen += ", 0";                 // Qty
             lColMaxInputLen += ", 0";                 // Rate
             lColMaxInputLen += ", 0";                 // Value
-            lColMaxInputLen += ", 0";                 // DiscPercent
-            lColMaxInputLen += ", 0";                 // DiscAmount
-            lColMaxInputLen += ", 0";                 // AfterDisc
-            lColMaxInputLen += ", 0";                 // STRate
-            lColMaxInputLen += ", 0";                 // STAmount
-            lColMaxInputLen += ", 0";                 // FSTRate
-            lColMaxInputLen += ", 0";                 // FSTAmount
-            lColMaxInputLen += ", 0";                 // NetAmount
             lColMaxInputLen += ", 0";                 // UOMID
 
 
@@ -355,14 +324,6 @@ namespace TaxSolution.Temp
             lColMinWidth += ", 0";                       // Qty
             lColMinWidth += ", 0";                       // Rate    
             lColMinWidth += ", 0";                       // Value    
-            lColMinWidth += ", 0";                       // DiscPercent
-            lColMinWidth += ", 0";                       // DiscAmount
-            lColMinWidth += ", 0";                       // AfterDisc
-            lColMinWidth += ", 0";                       // STRate  
-            lColMinWidth += ", 0";                       // STAmount   
-            lColMinWidth += ", 0";                       // FSTRate
-            lColMinWidth += ", 0";                       // FSTAmount
-            lColMinWidth += ", 0";                       // NetAmount
             lColMinWidth += ", 0";                       // UOMID
 
 
@@ -373,14 +334,6 @@ namespace TaxSolution.Temp
             lColFormat += ", T";                        // Qty
             lColFormat += ", T";                        // Rate    
             lColFormat += ", T";                        // Value    
-            lColFormat += ", T";                        // DiscPercent
-            lColFormat += ", T";                        // DiscAmount
-            lColFormat += ", T";                        // AfterDisc
-            lColFormat += ", T";                        // STRate  
-            lColFormat += ", T";                        // STAmount   
-            lColFormat += ", T";                        // FSTRate
-            lColFormat += ", T";                        // FSTAmount
-            lColFormat += " ,T";                        // NetAmount
             lColFormat += ", H";                        // UOMID
 
             // Column ReadOnly 1= readonly, 0 = read-write
@@ -390,14 +343,6 @@ namespace TaxSolution.Temp
             lColReadOnly += ",0";                       // Qty
             lColReadOnly += ",0";                       // Rate   
             lColReadOnly += ",0";                       // Value   
-            lColReadOnly += ",0";                       // DiscPercent
-            lColReadOnly += ",0";                       // DiscAmount
-            lColReadOnly += ",0";                       // AfterDisc
-            lColReadOnly += ",0";                       // STRate 
-            lColReadOnly += ",0";                       // STAmount  
-            lColReadOnly += ",0";                       // FSTRate
-            lColReadOnly += ",0";                       // FSTAmount
-            lColReadOnly += ",0";                       // NetAmount
             lColReadOnly += ",1";                       // UOMID
 
             // For Saving Time
@@ -407,14 +352,6 @@ namespace TaxSolution.Temp
             tColType += ", N0";               // Qty
             tColType += ", N2";              // Rate
             tColType += ", N2";              // Value
-            tColType += ", N2";              // DiscPercent
-            tColType += ", N2";              // DiscAmount
-            tColType += ", N2";              // AfterDisc
-            tColType += ", N2";              // STRate
-            tColType += ", N2";              // STAmount
-            tColType += ", N2";              // FSTRate
-            tColType += ", N2";              // FSTAmount
-            tColType += ", N2";              // NetAmount
             tColType += ", N0";              // UOMID
 
 
@@ -424,14 +361,6 @@ namespace TaxSolution.Temp
             tFieldName += ",Qty";         // Qty
             tFieldName += ",Rate";            // Rate    
             tFieldName += ",Value";           // Value    
-            tFieldName += ",DiscPercent";            // DiscPercent
-            tFieldName += ",DiscAmount";          // DiscAmount
-            tFieldName += ",AfterDisc";                 // AfterDisc
-            tFieldName += ",STRate";              // STRate
-            tFieldName += ",STAmount";             // STAmount
-            tFieldName += ",FSTRate";               // FSTRate
-            tFieldName += ",FSTAmount";            // FSTAmount
-            tFieldName += ",NetAmount";         // NetAmount
             tFieldName += ",UOMID";             // UOMID
 
             fHDR = lHDR;
@@ -467,7 +396,7 @@ namespace TaxSolution.Temp
 
             clsDbManager.SetGridHeaderCmb(
                 grd,
-                15,
+                7,
                 fHDR,
                 fColWidth,
                 fColMaxInputLen,
@@ -1161,9 +1090,9 @@ namespace TaxSolution.Temp
 
             for (int i = 0; i < grd.RowCount; i++)
             {
-                if (grd.Rows[i].Cells[(int)GColGrn1.NetAmount].Value != null)
+                if (grd.Rows[i].Cells[(int)GColGIn.Value].Value != null)
                 {
-                    bcheck = decimal.TryParse(grd.Rows[i].Cells[(int)GColGrn1.NetAmount].Value.ToString(), out outValue);
+                    bcheck = decimal.TryParse(grd.Rows[i].Cells[(int)GColGIn.Value].Value.ToString(), out outValue);
                     if (bcheck)
                     {
                         rtnVal += outValue;
@@ -1648,19 +1577,15 @@ namespace TaxSolution.Temp
                     //NetAmount = 16,                                                                                                           
 
                     lSQL = "INSERT INTO Inv_trandtl ( doc_id ";
-                    lSQL += ",doc_vt_id, ItemID, UOMID, Qty_In, Rate, DiscPercent, DiscAmount, STRate, FSTRate)";
+                    lSQL += ",doc_vt_id, ItemID, UOMID, Qty_In, Rate)";
                     lSQL += " VALUES (";
                     lSQL += "" + fDocID + "";
                     lSQL += "," + fDocTypeID;
                    // lSQL += ", '" + txtGateInward.Text.ToString() + "'";
-                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.ItemID].Value.ToString() + "";
-                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.UOMID].Value.ToString() + "";
-                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.Qty].Value.ToString() + "";
-                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.Rate].Value.ToString() + "";
-                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.DiscPercent].Value.ToString() + "";
-                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.DiscValue].Value.ToString() + "";
-                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.STPercent].Value.ToString() + "";
-                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGrn1.FEDPercent].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGIn.ItemID].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGIn.UOMID].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGIn.Qty].Value.ToString() + "";
+                    lSQL += ", " + grd.Rows[dGVRow].Cells[(int)GColGIn.Rate].Value.ToString() + "";
                     lSQL += ")";
                     fManySQL.Add(lSQL);
                 } // End For loopo
@@ -2235,9 +2160,11 @@ namespace TaxSolution.Temp
 
                         if (lblTotalAmount.Text != "" || lblTotalAmount.Text != null)
                         {
+
+                            lblAccountName.Text = " ";
                             double num = Convert.ToDouble(lblTotalAmount.Text);
 
-                            int num2 = Convert.ToInt16(num);
+                            int num2 = Convert.ToInt32(num);
 
                             string result = string.Empty;
                             //num = arrNum[i];
@@ -2514,15 +2441,7 @@ namespace TaxSolution.Temp
         //",UOMName";   
         //",Qty";       
         //",Rate";      
-        //",Value";     
-        //",DiscPercent"
-        //",DiscAmount";
-        //",AfterDisc"; 
-        //",STRate";    
-        //",STAmount";  
-        //",FSTRate";   
-        //",FSTAmount"; 
-        //",NetAmount"; 
+        //",Value";      
         //",UOMID";     
         
         
@@ -2531,15 +2450,11 @@ namespace TaxSolution.Temp
         {
             string lSQL = "";
             lSQL += "  select i.ItemID AS ItemID, item.goodsitem_title AS Name, i.UOMID, ";
-            lSQL += " u.goodsuom_title AS UOMName, i.Qty_In AS Qty, i.Rate, (i.Qty_In * Rate) AS Value, ";
-            lSQL += " i.DiscPercent,  ((i.DiscPercent/100)* Rate) AS DiscAmount, ";
-            lSQL += " i.DiscAmount AS AfterDisc, i.STRate, ";
-            lSQL += " ((i.STRate/100)*DiscAmount) AS STAmount,  i.FSTRate, ";
-            lSQL += " ((i.FSTRate/100)*DiscAmount) AS FSTAmount, ";
-            lSQL += " (i.DiscAmount + ((i.STRate/100)*DiscAmount) + ((i.FSTRate/100)*DiscAmount)) AS NetAmount ";
-            lSQL += " from inv_tran it INNER JOIN inv_trandtl i ON i.doc_id = it.doc_id INNER JOIN gds_uom u ON i.UOMID = u.goodsuom_id ";
-            lSQL += " INNER JOIN gds_item item ON i.ItemID = item.goodsitem_id ";
-            lSQL += " WHERE it.doc_id = " + lblDocID.Text.ToString();
+            lSQL += "  u.goodsuom_title AS UOMName, i.Qty_In AS Qty, i.Rate, (i.Qty_In * Rate) AS Value ";
+            lSQL += "  from inv_tran it INNER JOIN inv_trandtl i ON i.doc_id = it.doc_id ";
+            lSQL += "  INNER JOIN gds_uom u ON i.UOMID = u.goodsuom_id INNER JOIN gds_item item ON i.ItemID = item.goodsitem_id ";
+            lSQL += "  WHERE it.doc_id = " + lblDocID.Text.ToString();
+ 
             
 
             clsDbManager.FillDataGrid(
@@ -3051,7 +2966,7 @@ namespace TaxSolution.Temp
             //    int num2 = Convert.ToInt16(num);
 
             //    string result = string.Empty;
-            //    //num = arrNum[i];
+            //    num = arrNum[i];
             //    if (ConvertNumberToText(num2, out result) == true)
             //    {
             //        lblWordsAmount.Text = result;
@@ -3061,7 +2976,7 @@ namespace TaxSolution.Temp
 
             //else
             //{
-            //    //Do Nothing
+            //    Do Nothing
             //}
         }
     }

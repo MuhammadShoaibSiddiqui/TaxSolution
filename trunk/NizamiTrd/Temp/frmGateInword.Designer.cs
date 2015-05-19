@@ -1,6 +1,6 @@
 ﻿namespace TaxSolution.Temp
 {
-    partial class frmGRNCr
+    partial class frmGateInword
     {
         /// <summary>
         /// Required designer variable.
@@ -55,14 +55,6 @@
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiscPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiscAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AfterDisc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FSTValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FSTRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NetAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Transport = new System.Windows.Forms.TabPage();
             this.txtBiltyDate = new System.Windows.Forms.TextBox();
             this.txtDriverName = new System.Windows.Forms.TextBox();
@@ -186,12 +178,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(49, 16);
+            this.label1.Location = new System.Drawing.Point(14, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.Size = new System.Drawing.Size(114, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "GRN # : ";
+            this.label1.Text = "Gate Inword # : ";
             // 
             // label2
             // 
@@ -396,15 +388,7 @@
             this.UOM,
             this.Qty,
             this.Rate,
-            this.Value,
-            this.DiscPercent,
-            this.DiscAmount,
-            this.AfterDisc,
-            this.STRate,
-            this.STAmount,
-            this.FSTValue,
-            this.FSTRate,
-            this.NetAmount});
+            this.Value});
             this.grd.Location = new System.Drawing.Point(9, 9);
             this.grd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grd.Name = "grd";
@@ -450,46 +434,6 @@
             // 
             this.Value.HeaderText = "Value";
             this.Value.Name = "Value";
-            // 
-            // DiscPercent
-            // 
-            this.DiscPercent.HeaderText = "DiscPercent";
-            this.DiscPercent.Name = "DiscPercent";
-            // 
-            // DiscAmount
-            // 
-            this.DiscAmount.HeaderText = "DiscAmount";
-            this.DiscAmount.Name = "DiscAmount";
-            // 
-            // AfterDisc
-            // 
-            this.AfterDisc.HeaderText = "AfterDisc";
-            this.AfterDisc.Name = "AfterDisc";
-            // 
-            // STRate
-            // 
-            this.STRate.HeaderText = "STRate";
-            this.STRate.Name = "STRate";
-            // 
-            // STAmount
-            // 
-            this.STAmount.HeaderText = "STAmount";
-            this.STAmount.Name = "STAmount";
-            // 
-            // FSTValue
-            // 
-            this.FSTValue.HeaderText = "FSTValue";
-            this.FSTValue.Name = "FSTValue";
-            // 
-            // FSTRate
-            // 
-            this.FSTRate.HeaderText = "FSTRate";
-            this.FSTRate.Name = "FSTRate";
-            // 
-            // NetAmount
-            // 
-            this.NetAmount.HeaderText = "NetAmount";
-            this.NetAmount.Name = "NetAmount";
             // 
             // Transport
             // 
@@ -1599,7 +1543,7 @@
             this.lblWordsAmount.TabIndex = 69;
             this.lblWordsAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // frmGRNCr
+            // frmGateInword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1639,7 +1583,7 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Credit Purchase Entry";
+            this.Text = "Gate Inword";
             this.Load += new System.EventHandler(this.frmVoc_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGRNCr_KeyDown);
             this.tabControl1.ResumeLayout(false);
@@ -1771,22 +1715,14 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox txtFEDPercentage;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label lblAmountInWords;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label lblWordsAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn UOM;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Value;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiscPercent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiscAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AfterDisc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STRate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FSTValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FSTRate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NetAmount;
-        private System.Windows.Forms.Label lblAmountInWords;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label lblWordsAmount;
     }
 }
