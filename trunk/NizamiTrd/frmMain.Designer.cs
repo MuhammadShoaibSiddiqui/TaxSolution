@@ -568,6 +568,7 @@
             this.saleOrderEntryToolStripMenuItem.Name = "saleOrderEntryToolStripMenuItem";
             this.saleOrderEntryToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.saleOrderEntryToolStripMenuItem.Text = "Sale Order Entry";
+            this.saleOrderEntryToolStripMenuItem.Click += new System.EventHandler(this.saleOrderEntryToolStripMenuItem_Click);
             // 
             // gateOutwardToolStripMenuItem
             // 
