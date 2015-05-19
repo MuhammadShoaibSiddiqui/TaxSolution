@@ -575,6 +575,7 @@
             this.gateOutwardToolStripMenuItem.Name = "gateOutwardToolStripMenuItem";
             this.gateOutwardToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.gateOutwardToolStripMenuItem.Text = "Gate Outward";
+            this.gateOutwardToolStripMenuItem.Click += new System.EventHandler(this.gateOutwardToolStripMenuItem_Click);
             // 
             // productionTransactionToolStripMenuItem
             // 

@@ -1198,7 +1198,7 @@ namespace TaxSolution
 
          private void gateInwardToolStripMenuItem_Click(object sender, EventArgs e)
          {
-             Temp.frmGateOutword frm = new Temp.frmGateOutword();
+             Temp.frmGateInword frm = new Temp.frmGateInword();
              frm.MdiParent = this;
              frm.Show();
          }
@@ -1206,6 +1206,13 @@ namespace TaxSolution
          private void saleOrderEntryToolStripMenuItem_Click(object sender, EventArgs e)
          {
              Temp.frmSaleOrderEntry frm = new Temp.frmSaleOrderEntry();
+             frm.MdiParent = this;
+             frm.Show();
+         }
+
+         private void gateOutwardToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+             Temp.frmGateOutword frm = new Temp.frmGateOutword();
              frm.MdiParent = this;
              frm.Show();
          }
